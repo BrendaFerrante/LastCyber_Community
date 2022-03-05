@@ -9,13 +9,24 @@ import java.util.List;
 
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 
 
 public class Blog {
-    private String name;
+    private String title;
+    private String content;
+    private String resume;
+    private String author;
     private Date date;
+    private int nLikes;
+
+    public Blog(){
+        this.nLikes=0;
+    }
+
+    public void addLike(){
+        this.nLikes++;
+    }
     //Prueba Github
 
 }
