@@ -19,9 +19,11 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
     private boolean admin;
-    private String name;
+
+    private String nickname; //Unique
     private String email;
     private String password;
+
+
 }
