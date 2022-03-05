@@ -18,7 +18,7 @@ import javax.persistence.Id;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private long id_User;
     private boolean admin;
 
     private String nickname; //Unique
