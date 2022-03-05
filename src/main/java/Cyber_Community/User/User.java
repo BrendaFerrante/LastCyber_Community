@@ -18,7 +18,9 @@ import javax.persistence.Id;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id = -1;
+
+    private long id_User= -1;
+
     private boolean admin;
 
     private String nickname; //Unique
@@ -27,7 +29,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", nickname=" + nickname + ", email=" + email + ", admin=" + admin + "]";
+        return "User [id=" + id_User + ", nickname=" + nickname + ", email=" + email + ", admin=" + admin + "]";
     }
 
 }
