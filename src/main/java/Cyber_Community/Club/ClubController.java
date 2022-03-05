@@ -13,6 +13,7 @@ public class ClubController {
     /*@Autowired
     private ClubRepository clubRepository;*/
 
+
     @GetMapping("/")
     public String tablon(Model model) {
         //model.addAttribute("clubs",clubRepository.);
