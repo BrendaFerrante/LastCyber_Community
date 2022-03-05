@@ -5,6 +5,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ClubRestController {
-    /*@Autowired
-    ClubRepository clubRepository;*/
+    @Autowired
+    ClubRepository clubRepository;
 }
