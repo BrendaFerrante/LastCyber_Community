@@ -27,6 +27,8 @@ public class Blog {
     public void addLike(){
         this.nLikes++;
     }
+
+
     //Prueba Github
 
 }
