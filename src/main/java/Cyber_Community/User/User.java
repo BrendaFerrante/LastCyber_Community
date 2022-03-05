@@ -18,12 +18,16 @@ import javax.persistence.Id;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private long id = -1;
     private boolean admin;
 
     private String nickname; //Unique
     private String email;
     private String password;
 
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", nickname=" + nickname + ", email=" + email + ", admin=" + admin + "]";
+    }
 
 }
