@@ -1,4 +1,4 @@
 package Cyber_Community.Exception;
 
-public class UserError {
+public class UserError extends Exception{
 }

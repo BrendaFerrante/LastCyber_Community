@@ -10,4 +10,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 public class Club {
+    private String name;
+    private String description;
+    private String admin;
+    private String contact;
+    private int actualNumMember;
+
+
+    public void add(){
+        this.actualNumMember++;
+    }
+
 }
