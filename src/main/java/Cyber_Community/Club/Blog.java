@@ -33,7 +33,27 @@ public class Blog {
         this.nLikes++;
     }
 
+    public void setId(long id){
+        this.id_Blog = id;
+    }
 
-      
+    public long getId() {
+        return id_Blog;
+    }
+    public String getTitle() {
+        return title;
+    }
+    public String getAuthor() {
+        return author;
+    }
+    public Date getDate() {
+        return date;
+    }
+    public int getnLikes() {
+        return nLikes;
+    }
+    public String getResume() {
+        return resume;
+    }
 
 }

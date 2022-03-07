@@ -10,8 +10,8 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
+@RequestMapping("/api")
 @RestController
-@RequestMapping("/Users")
 public class UserRestController {
 
     private Map<Long, User> users = new ConcurrentHashMap<>();

@@ -32,4 +32,12 @@ public class User {
         return "User [id=" + id_User + ", nickname=" + nickname + ", email=" + email + ", admin=" + admin + "]";
     }
 
+    public void setId(long i){
+        this.id_User = i;
+    }
+
+    public String getNickname (){
+        return this.nickname;
+    }
+
 }
