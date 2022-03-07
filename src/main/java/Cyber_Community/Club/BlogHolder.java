@@ -10,19 +10,30 @@ import java.util.concurrent.atomic.AtomicLong;
 @Service
 public class BlogHolder {
     private Map<Long, Blog> blogs= new ConcurrentHashMap<>();
-    private AtomicLong lastID = new AtomicLong();
+    private AtomicLong lastID_Blog = new AtomicLong();
 
-    public void addBlog(Blog b) {
-        long id = lastID.incrementAndGet();
+    public void add(Blog b) { //set the id too
+        long id = lastID_Blog.incrementAndGet();
         b.setId(id);
         this.blogs.put(b.getId(), b);
     }
+    public void add(long id, Blog b) {
+        this.blogs.put(id, b);
+    }
 
-    public Collection<Blog> getBlog(){
+    public Collection<Blog> getBlog(){ //Return all blogs
         return blogs.values();
     }
 
-    public Blog getItem(long id){
+    public Blog getBlog(long id){
         return blogs.get(id);
+    }
+
+    public AtomicLong getId() {
+        return lastID_Blog;
+    }
+
+    public Blog remove(long id) {
+        return blogs.remove(id);
     }
 }

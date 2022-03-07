@@ -26,7 +26,15 @@ public class Blog {
     private int nLikes;
 
     public Blog(){
-        this.nLikes=0;
+
+    }
+
+    public Blog(String t, String c, String r, String a, Date d){
+        this.title = t;
+        this.content = c;
+        this. resume = r;
+        this.author = a;
+        this.date = d;
     }
 
     public void addLike(){
@@ -40,20 +48,8 @@ public class Blog {
     public long getId() {
         return id_Blog;
     }
-    public String getTitle() {
-        return title;
-    }
-    public String getAuthor() {
-        return author;
-    }
-    public Date getDate() {
-        return date;
-    }
-    public int getnLikes() {
-        return nLikes;
-    }
-    public String getResume() {
-        return resume;
+    public void setnLikes(int l){
+        this.nLikes = l;
     }
 
 }
