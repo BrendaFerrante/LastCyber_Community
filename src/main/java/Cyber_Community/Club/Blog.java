@@ -10,10 +10,8 @@ import javax.persistence.Id;
 import java.sql.Date;
 import java.util.List;
 
-
 @Data
 @AllArgsConstructor
-
 
 public class Blog {
     @Id
