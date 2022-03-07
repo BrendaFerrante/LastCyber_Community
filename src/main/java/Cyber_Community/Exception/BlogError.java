@@ -4,6 +4,6 @@ public class BlogError extends Exception {
 
     @Override
     public String toString() {
-        return super.toString();
+        return super.toString() + "Error";
     }
 }

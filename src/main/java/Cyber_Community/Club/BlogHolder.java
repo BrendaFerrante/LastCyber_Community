@@ -25,7 +25,7 @@ public class BlogHolder {
         return blogs.values();
     }
 
-    public Blog getBlog(long id){
+    public Blog getBlog(long id){ //Return one blog
         return blogs.get(id);
     }
 

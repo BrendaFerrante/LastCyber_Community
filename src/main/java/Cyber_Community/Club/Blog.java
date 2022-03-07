@@ -26,9 +26,7 @@ public class Blog {
     private int nLikes;
 
     public Blog(){
-
     }
-
     public Blog(String t, String c, String r, String a, Date d){
         this.title = t;
         this.content = c;
@@ -50,6 +48,12 @@ public class Blog {
     }
     public void setnLikes(int l){
         this.nLikes = l;
+    }
+
+    @Override
+    public String toString() {
+        return "Blog {" + "title='" + title + '\'' + ", content='" + content + '\'' + ", resume='" + resume + '\'' +
+                ", author='" + author + '\'' +", date=" + date + ", nLikes=" + nLikes + '}';
     }
 
 }
