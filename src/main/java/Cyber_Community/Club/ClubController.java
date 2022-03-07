@@ -12,8 +12,9 @@ public class ClubController {
     @Autowired
     ClubHolder clubHolder;
 
-    @GetMapping("/club")
+    @GetMapping("/")
     public String club(Model model) {
+        model.addAttribute("silent",true);
         model.addAttribute("Clubs", clubHolder.getclubs());
         return "IndexClub_template";
     }

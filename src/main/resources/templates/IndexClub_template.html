@@ -2,9 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Clubes</title>
+    <title>Clubs</title>
 </head>
 <body>
-    See all clubs
+<h1>Club space</h1>
+    {{#clubs}}
+    <a href="club/{{-index}}">{{name}}</a><br>
+    {{/clubs}}
+<h1>Join the club</h1>
+<a href="PetitionClub.html">I want to be in this club</a>
+{{#silent}}
+<h1>Club management</h1>
+<a href="AddClub.html">Creat a new club</a><br>
+<a href="DeleteClub.html">Delete a club</a><br>
+<a href="EditClub.html">Modify a club</a><br>
+{{/silent}}
 </body>
 </html>
