@@ -13,17 +13,15 @@ public class BlogRestController {
     @Autowired
     BlogHolder blogHolder;
 
-    @PostMapping("/blog/new") //Add a blog to the map
+    @PostMapping("/blog/") //Add a blog to the map
     @ResponseStatus(HttpStatus.CREATED)
-    public Blog newBlog(@RequestBody Blog blog){
-        AtomicLong id = blogHolder.getId();
-        blog.setId_Blog(id.incrementAndGet());
+    public Blog AddBlog(@RequestBody Blog blog){
         blogHolder.add(blog);
         return blog;
     }
 
-    @GetMapping("/blog/{id}")
-    public ResponseEntity<Blog> getBlog(@PathVariable long id) {
+    @GetMapping("/club/{numClub}/blog/{id}")
+    public ResponseEntity<Blog> getBlog(@PathVariable long id, @RequestParam String numClub) {
         Blog blog = blogHolder.getBlog(id);
         if (blog != null){
             return new ResponseEntity<>(blog, HttpStatus.OK);
@@ -32,8 +30,8 @@ public class BlogRestController {
         }
     }
 
-    @DeleteMapping("/blog/delete/{id}")
-    public ResponseEntity<Blog> deleteBlog(@PathVariable long id){
+    @DeleteMapping("/club/{numClub}/blog/delete/{id}")
+    public ResponseEntity<Blog> deleteBlog(@PathVariable long id,  @RequestParam String numClub){
         Blog blog = blogHolder.remove(id);
         if(blog != null){
             return new ResponseEntity<>(blog, HttpStatus.OK);
@@ -42,8 +40,8 @@ public class BlogRestController {
         }
     }
 
-    @PutMapping("/blog/update/{id}")
-    public ResponseEntity<Blog> updateBlog(@PathVariable long id, @RequestBody Blog upBlog){
+    @PutMapping("/club/{numClub}/blog/update/{id}")
+    public ResponseEntity<Blog> updateBlog(@PathVariable long id, @RequestBody Blog upBlog, @RequestParam String numClub){
         Blog blog = blogHolder.getBlog(id);
         if (blog != null){
             upBlog.setId(id);

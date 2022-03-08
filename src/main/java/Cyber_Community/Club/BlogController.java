@@ -18,21 +18,21 @@ public class BlogController {
         return "SavedBlog_template";
     }
 
-    @GetMapping("/blog/{id}") //View one blog
-    public String viewBlog(Model model, @PathVariable int id) {
+    @GetMapping("/club/blog/{id}") //View one blog
+    public String viewBlog(Model model, @PathVariable long id) {
         Blog b = blogHolder.getBlog(id - 1);
         model.addAttribute("blog", blogHolder.getBlog(id));
         return "Blog_template";
     }
 
-    @DeleteMapping("/blog/delete/{id}") //Delete one blog
-    public String deleteBlog(@PathVariable long id){
+    @DeleteMapping("/club/blog/delete/{id}") //Delete one blog
+    public String deleteBlog(Model model, @PathVariable long id){
         blogHolder.remove(id);
         return "Club_template"; //Go back
     }
 
     @PutMapping("/blog/update/{id}") //Update one blog
-    public String updateBlog(@PathVariable long id, Model model, Blog upBlog){
+    public String updateBlog(Model model, Blog upBlog, @PathVariable long id){
         blogHolder.add(id, upBlog);
         model.addAttribute("blog", blogHolder.getBlog(id));
         return "Blog_template";
