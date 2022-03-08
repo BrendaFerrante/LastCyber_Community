@@ -38,14 +38,29 @@
     <h1 class="w3-margin w3-jumbo">{{club.name}}</h1>
     <!--button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">See all the club</button-->
 </header>
-<p>Name: {{club.name}}</p><br>
-<p>Description: {{club.description}}</p><br>
-<p>Admin: {{club.admin}}</p><br>
-<p>Blogs:</p><br>
+
+<div style="padding-left:20px">
+
+<p>Name: {{club.name}}</p>
+<p>Description: {{club.description}}</p>
+<p>Admin: {{club.admin}}</p>
+<p>Blogs:</p>
+
+<p>
 {{#club.blogs}}
 <a href="/blog/{{-index}}"> {{title}}</a><br>
 {{/club.blogs}}
-<a href="/AddBlog.html"><button class="w3-button w3-black ">Write a new blog</button></a></br>
+</p>
+
+<p>
+    <a href="/AddBlog.html"><button class="w3-button w3-black ">Write a new blog</button></a>
+    <br>
+</p>
+
+<p>
+    <a href=javascript:history.back()> <button type="button" class="cancelbtn">Go Back</button></a>
+</p>
+</div>
 
 </body>
 </html>

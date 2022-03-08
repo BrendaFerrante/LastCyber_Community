@@ -4,13 +4,23 @@
     <meta charset="UTF-8">
     <title>Blog</title>
 </head>
-<body>
-<p>Title: {{blog.title}}</p>
-<p>Resume: {{blog.resume}}</p>
+<body style="padding-left: 20px; padding-top: 50px">
+
+<p>Title: <b>{{blog.title}}</b></p>
+
+<p>Resume: {{blog.resume}} </p>
 <p>Author: {{blog.author}}  -  Date {{blog.date}}</p>
+<br>
 <p>{{blog.content}}</p>
-<a href="/club"> Go back </a>
-<a href="DeleteBlog.html">Delete </a>
-<a href="/">Edit blog</a>
+<br>
+{{#silent}}
+<a href="DeleteBlog.html"><button class="w3-button w3-black "> Edit Blog </button></a>
+<a href="EditBlog.html"><button class="w3-button w3-red "> Delete </button></a>
+<br>
+{{silent}}
+
+<a href=javascript:history.back()> <button type="button" class="cancelbtn">Go Back</button></a>
+<br>
+
 </body>
 </html>

@@ -18,14 +18,14 @@ public class BlogController {
         return "SavedBlog_template";
     }
 
-    @GetMapping("/club/blog/{id}") //View one blog
+    @GetMapping("/blog/{id}") //View one blog
     public String viewBlog(Model model, @PathVariable long id) {
         Blog b = blogHolder.getBlog(id - 1);
         model.addAttribute("blog", blogHolder.getBlog(id));
         return "Blog_template";
     }
 
-    @DeleteMapping("/club/blog/delete/{id}") //Delete one blog
+    @DeleteMapping("/blog/delete/{id}") //Delete one blog
     public String deleteBlog(Model model, @PathVariable long id){
         blogHolder.remove(id);
         return "Club_template"; //Go back

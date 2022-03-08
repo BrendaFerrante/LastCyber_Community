@@ -38,20 +38,24 @@
     <!--button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">See all the club</button-->
 </header>
 
-<h1>Clubs</h1>
-<ul>
+<h1 style="text-align: center">Clubs</h1>
+<ul style="text-align: center">
     {{#clubs}}
-    <a href="club/{{-index}}">· {{name}}</a><br>
+    <a href="club/{{-index}}">· {{name}}</a>
+    <br>
     {{/clubs}}
 </ul>
 
-<h1>Join the club</h1>
-<a href="PetitionClub.html">I want to be in this club</a>
+<h1 style="text-align: center"> Join the club </h1>
+<a href="PetitionClub.html" style="text-align: center">I want to be in this club</a>
+
 {{#silent}}
-<h1>Club management</h1>
-<a href="AddClub.html"><button class="w3-button w3-black ">Creat new club</button></a></br>
-<a href="DeleteClub.html"><button class="w3-button w3-black ">Delete a club</button></a><br>
-<a href="EditClub.html"><button class="w3-button w3-black ">Modify a club</button></a><br>
+<h1 style="text-align: center"> Club management</h1>
+<div style="text-align:center; padding-bottom: 50px">
+<a href="AddClub.html"><button class="w3-button w3-black ">Creat new club</button></a>
+<a href="DeleteClub.html"><button class="w3-button w3-black">Delete a club</button></a>
+<a href="EditClub.html"><button class="w3-button w3-black">Modify a club</button></a>
+</div>
 {{/silent}}
 
 
