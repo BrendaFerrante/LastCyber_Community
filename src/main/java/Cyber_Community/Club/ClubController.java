@@ -22,6 +22,8 @@ public class ClubController {
     @GetMapping("/club/{id}")
     public String getClub(Model model,@PathVariable long id){
         model.addAttribute("club",clubHolder.getClub(id));
+        //clubHolder.getClub(id).blogHolder.
+
         return "Club_template";
     }
 
