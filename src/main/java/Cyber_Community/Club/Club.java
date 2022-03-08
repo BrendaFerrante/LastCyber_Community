@@ -11,6 +11,8 @@ import org.yaml.snakeyaml.events.Event;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -25,17 +27,16 @@ public class Club {
     private String description;
     private String contact;
     private List<User> members;
+    private List<Blog> blogs=new ArrayList<>();
     private String admin;
-    @Autowired
-    BlogHolder blogHolder;
-    @Autowired
-    BlogHolder userHolder;
-
 
     public Club(String name,String description,String admin) {
+        Date date=new Date();
+        Blog blog=new Blog("new bLog","2","1","2",date);
         this.name = name;
         this.description=description;
         this.admin=admin;
+        this.blogs.add(blog);
     }
 
     public void add(User u){
