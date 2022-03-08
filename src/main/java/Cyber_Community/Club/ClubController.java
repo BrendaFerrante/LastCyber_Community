@@ -12,10 +12,10 @@ public class ClubController {
     @Autowired
     ClubHolder clubHolder;
 
-    @GetMapping("/")
+    @GetMapping("/club")
     public String club(Model model) {
         model.addAttribute("silent",true);
-        model.addAttribute("Clubs", clubHolder.getclubs());
+        model.addAttribute("clubs", clubHolder.getclubs());
         return "IndexClub_template";
     }
 
@@ -34,6 +34,7 @@ public class ClubController {
     }
     @DeleteMapping(("/club/{id}"))
     public String deleteClub(Model model,@PathVariable long id){
+        model.addAttribute("clubs", clubHolder.getclubs());
         clubHolder.deleteClub(id);
         return "ClubDeleted_template";
     }

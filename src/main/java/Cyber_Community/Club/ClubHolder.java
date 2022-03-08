@@ -16,7 +16,7 @@ public class ClubHolder {
 
     private AtomicLong lastId=new AtomicLong();
     public ClubHolder(){
-
+        this.clubs.put(this.lastId.incrementAndGet(),new Club("CLub1","pruea","yo"));
     }
 
     public void addClub(Club Club){

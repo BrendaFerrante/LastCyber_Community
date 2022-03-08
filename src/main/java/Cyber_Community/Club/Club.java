@@ -17,7 +17,6 @@ import javax.persistence.Id;
 public class Club {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id_Club;
     private Long id;
     private String name;
     private String description;
@@ -25,6 +24,11 @@ public class Club {
     private String contact;
     private int actualNumMember;
 
+    public Club(String name,String description,String admin) {
+        this.name = name;
+        this.description=description;
+        this.admin=admin;
+    }
 
     public void add(){
         this.actualNumMember++;

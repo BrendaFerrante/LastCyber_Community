@@ -3,6 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Clubs</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+        .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+        .fa-anchor,.fa-coffee {font-size:200px}
+    </style>
 </head>
 <body>
 <h1>Club space</h1>
@@ -13,9 +23,15 @@
 <a href="PetitionClub.html">I want to be in this club</a>
 {{#silent}}
 <h1>Club management</h1>
-<a href="AddClub.html">Creat a new club</a><br>
+
+<div class="contenedor">
+    <a href="AddClub.html"><button class="w3-button w3-black ">Creat new club</button></a><br>
+</div>
+
 <a href="DeleteClub.html">Delete a club</a><br>
 <a href="EditClub.html">Modify a club</a><br>
 {{/silent}}
 </body>
 </html>
+
+<!-- Para buscar un club-->
