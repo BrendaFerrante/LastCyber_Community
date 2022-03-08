@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete blog</title>
+</head>
+<body>
+<form action="blog/delete/{{id}}" method="delete">
+</form>
+<h1>Blog</h1>
+{{#blogs}}
+<a href="blog/delete/{{-index}}">{{name}}</a><br>
+{{/blogs}}
+</body>
+</html>

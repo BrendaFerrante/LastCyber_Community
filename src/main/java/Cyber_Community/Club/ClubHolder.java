@@ -18,7 +18,7 @@ public class ClubHolder {
 
     public ClubHolder(){
         User user=new User();
-        this.clubs.put(this.lastId.incrementAndGet(),new Club("CLub1","prueba",user));
+        this.clubs.put(this.lastId.incrementAndGet(),new Club("CLub1","prueba","A"));
     }
 
     public void addClub(Club Club){
