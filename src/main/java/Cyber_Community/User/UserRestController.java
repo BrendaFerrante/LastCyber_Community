@@ -18,7 +18,7 @@ public class UserRestController {
     private AtomicLong lastId = new AtomicLong();
 
     @GetMapping("/user")
-    public Collection<User> getUser() {
+    public Collection<User> getUsers() {
         return users.values();
     }
 
@@ -34,12 +34,10 @@ public class UserRestController {
 
     @PostMapping("/user/new")
     @ResponseStatus(HttpStatus.CREATED)
-    public User createItem(@RequestBody User user) {
-
+    public User createUser(@RequestBody User user) {
         long id = lastId.incrementAndGet();
         user.setId(id);
         users.put(id, user);
-
         return user;
     }
 
