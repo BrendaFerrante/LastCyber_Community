@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
 
 
 @Data
@@ -26,10 +27,11 @@ public class User {
     private String nickname; //Unique
     private String email;
     private String password;
+    private Date birth;
 
     @Override
     public String toString() {
-        return "User [id=" + id_User + ", nickname=" + nickname + ", email=" + email + ", admin=" + admin + "]";
+        return "User [id=" + id_User + ", nickname=" + nickname + ", email=" + email + ", admin=" + admin + ", birthday" + birth + "]" ;
     }
 
     public void setId(long i){

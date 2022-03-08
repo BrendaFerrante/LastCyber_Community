@@ -17,12 +17,12 @@ public class UserRestController {
     private Map<Long, User> users = new ConcurrentHashMap<>();
     private AtomicLong lastId = new AtomicLong();
 
-    @GetMapping("/")
+    @GetMapping("/user")
     public Collection<User> getUser() {
         return users.values();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/user/{id}")
     public ResponseEntity<User> getUser(@PathVariable long id) {
         User user = users.get(id);
         if (user != null) {
@@ -32,7 +32,7 @@ public class UserRestController {
         }
     }
 
-    @PostMapping("/")
+    @PostMapping("/user/new")
     @ResponseStatus(HttpStatus.CREATED)
     public User createItem(@RequestBody User user) {
 
@@ -43,7 +43,7 @@ public class UserRestController {
         return user;
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/user/{id}")
     public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User newUser) {
 
         User oldUser = users.get(id);
@@ -59,7 +59,7 @@ public class UserRestController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/user/{id}")
     public ResponseEntity<User> deleteUser(@PathVariable long id) {
 
         User user = users.remove(id);
