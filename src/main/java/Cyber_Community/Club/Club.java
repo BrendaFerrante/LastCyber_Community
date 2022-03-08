@@ -27,12 +27,11 @@ public class Club {
     private String description;
     private String contact;
     private List<User> members;
-    private List<Blog> blogs=new ArrayList<>();
+    private List<Blog> blogs = new ArrayList<>();
     private String admin;
 
     public Club(String name,String description,String admin) {
-        Date date=new Date();
-        Blog blog=new Blog("new bLog","2","1","2",date);
+        Blog blog=new Blog("Blog test","2","1","2");
         this.name = name;
         this.description=description;
         this.admin=admin;

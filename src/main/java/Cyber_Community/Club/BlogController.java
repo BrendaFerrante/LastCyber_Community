@@ -20,7 +20,7 @@ public class BlogController {
 
     @GetMapping("/blog/{id}") //View one blog
     public String viewBlog(Model model, @PathVariable long id) {
-        Blog b = blogHolder.getBlog(id - 1);
+        model.addAttribute("silent",true);
         model.addAttribute("blog", blogHolder.getBlog(id));
         return "Blog_template";
     }

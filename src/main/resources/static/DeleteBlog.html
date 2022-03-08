@@ -5,11 +5,9 @@
     <title>Delete blog</title>
 </head>
 <body>
-<form action="club/{{num}}/blog/delete/{{id}}" method="deleteBlog">
-</form>
-<h1>Blog</h1>
-{{#blogs}}
-<a href="club/{{num}}/blog/delete/{{id}}">{{name}}</a><br>
-{{/blogs}}
+
+The blog has been deleted <br>
+<a href=javascript:history.back()><button type="button" class="cancelbtn">Go back</button></a>
+
 </body>
 </html>

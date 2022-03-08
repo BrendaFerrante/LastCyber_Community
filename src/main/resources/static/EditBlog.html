@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>New Blog</title>
+    <title>Edit Blog</title>
 </head>
 <body>
 
-<form action="blog/new" method="post">
+<form action="blog/update/{{id}}" method="post">
     <p>Title: </p>
     <input type='text' name='title'  placeholder="Title..."/>
     <p>Resume:</p>
@@ -14,7 +14,7 @@
     <p>Author:</p>
     <input type='text' name='author'   placeholder="Author..."/>
     <!-- The author will be automatically added later with tokens after login-->
-    <p>Content:</p>
+    <p>Content of the blog:</p>
     <textarea name='content' rows=30 cols=120 placeholder="Write here..."></textarea>
     <input type="submit" value="submit"/>
 </form>

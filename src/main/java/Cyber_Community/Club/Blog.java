@@ -23,21 +23,17 @@ public class Blog {
     private String resume;
     private String author;
     private Date date;
-    private int nLikes;
 
     public Blog(){
     }
 
-    public Blog(String t, String c, String r, String a, Date d){
+    public Blog(String t, String c, String r, String a){
         this.title = t;
         this.content = c;
         this. resume = r;
         this.author = a;
+        Date d = new Date();
         this.date = d;
-    }
-
-    public void addLike(){
-        this.nLikes++;
     }
 
     public void setId(long id){
@@ -47,14 +43,11 @@ public class Blog {
     public long getId() {
         return id_Blog;
     }
-    public void setnLikes(int l){
-        this.nLikes = l;
-    }
 
     @Override
     public String toString() {
         return "Blog {" + "title='" + title + '\'' + ", content='" + content + '\'' + ", resume='" + resume + '\'' +
-                ", author='" + author + '\'' +", date=" + date + ", nLikes=" + nLikes + '}';
+                ", author='" + author + '\'' +", date=" + date + '}';
     }
 
 }

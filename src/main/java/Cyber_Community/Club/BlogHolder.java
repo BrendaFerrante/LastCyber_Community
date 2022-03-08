@@ -2,9 +2,7 @@ package Cyber_Community.Club;
 
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.Date;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -15,8 +13,9 @@ public class BlogHolder {
 
     public BlogHolder(){
         Date date=new Date();
-        blogs.put(lastID_Blog.incrementAndGet(),new Blog("new blog","new blog","new blog","new blog",date));
+        blogs.put(lastID_Blog.incrementAndGet(),new Blog("new blog","new blog","new blog","new blog"));
     }
+
     public void add(Blog b) { //set the id too
         long id = lastID_Blog.incrementAndGet();
         b.setId(id);
@@ -26,8 +25,9 @@ public class BlogHolder {
         this.blogs.put(id, b);
     }
 
-    public Collection<Blog> getAllBlogs(){ //Return all blogs
-        return blogs.values();
+    public List<Blog> getAllBlogs(){ //Return all blogs in a list
+        List<Blog> newList = new ArrayList<Blog>(this.blogs.values());
+        return newList;
     }
 
     public Blog getBlog(long id){ //Return one blog
