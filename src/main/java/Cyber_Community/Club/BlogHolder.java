@@ -3,6 +3,7 @@ package Cyber_Community.Club;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
@@ -12,6 +13,10 @@ public class BlogHolder {
     private Map<Long, Blog> blogs= new ConcurrentHashMap<>();
     private AtomicLong lastID_Blog = new AtomicLong();
 
+    public BlogHolder(){
+        Date date=new Date();
+        blogs.put(lastID_Blog.incrementAndGet(),new Blog("1","2","1","2",date));
+    }
     public void add(Blog b) { //set the id too
         long id = lastID_Blog.incrementAndGet();
         b.setId(id);

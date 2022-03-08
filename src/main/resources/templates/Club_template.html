@@ -5,8 +5,12 @@
     <title>Club</title>
 </head>
 <body>
-<p>Name: {{club.name}}</p>
-<p>Descrption: {{club.description}}</p>
-<p>Admin: {{club.admin}}</p>
+<p>Name: {{club.name}}</p><br>
+<p>Descrption: {{club.description}}</p><br>
+<p>Admin: {{club.admin}}</p><br>
+<p>Blogs:</p><br>
+{{#club.blogHolder}}
+<a href="blog/{{-index}}">{{title}}1</a><br>
+{{/club.blogHolder}}
 </body>
 </html>

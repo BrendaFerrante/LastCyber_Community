@@ -13,7 +13,6 @@ import java.util.concurrent.atomic.AtomicLong;
 @Service
 public class ClubHolder {
     private Map<Long,Club> clubs= new ConcurrentHashMap<>();
-
     private AtomicLong lastId=new AtomicLong();
     public ClubHolder(){
         this.clubs.put(this.lastId.incrementAndGet(),new Club("CLub1","pruea","yo"));

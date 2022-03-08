@@ -4,6 +4,7 @@ package Cyber_Community.Club;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.yaml.snakeyaml.events.Event;
 
 import javax.persistence.GeneratedValue;
@@ -24,6 +25,8 @@ public class Club {
     private String contact;
     private int actualNumMember;
 
+    @Autowired
+    BlogHolder blogHolder;
     public Club(String name,String description,String admin) {
         this.name = name;
         this.description=description;
