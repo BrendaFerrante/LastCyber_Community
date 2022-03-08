@@ -28,10 +28,11 @@ public class User {
     private String email;
     private String password;
     private Date birth;
+    private String biography;
 
     @Override
     public String toString() {
-        return "User [id=" + id_User + ", nickname=" + nickname + ", email=" + email + ", admin=" + admin + ", birthday" + birth + "]" ;
+        return "User [id:" + id_User + ", nickname:" + nickname + ", email:" + email + ", admin:" + admin + ", birthday:" + birth + ", biography:" + biography+"]" ;
     }
 
     public void setId(long i){
