@@ -27,6 +27,7 @@ public class Blog {
 
     public Blog(){
     }
+
     public Blog(String t, String c, String r, String a, Date d){
         this.title = t;
         this.content = c;

@@ -1,6 +1,7 @@
 package Cyber_Community.Club;
 
 
+import Cyber_Community.User.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,7 @@ import org.yaml.snakeyaml.events.Event;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -22,7 +24,7 @@ public class Club {
     private String description;
     private String admin;
     private String contact;
-    private int actualNumMember;
+    private List<User> members;
 
     public Club(String name,String description,String admin) {
         this.name = name;
@@ -30,8 +32,8 @@ public class Club {
         this.admin=admin;
     }
 
-    public void add(){
-        this.actualNumMember++;
+    public void add(User u){
+        members.add(u);
     }
 
 }

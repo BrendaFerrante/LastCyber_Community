@@ -21,7 +21,7 @@ public class BlogHolder {
         this.blogs.put(id, b);
     }
 
-    public Collection<Blog> getBlog(){ //Return all blogs
+    public Collection<Blog> getAllBlogs(){ //Return all blogs
         return blogs.values();
     }
 
@@ -30,7 +30,7 @@ public class BlogHolder {
     }
 
     public AtomicLong getId() {
-        return lastID_Blog;
+        return this.lastID_Blog;
     }
 
     public Blog remove(long id) {
