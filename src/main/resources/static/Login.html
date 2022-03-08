@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
     <style>
         body {font-family: Arial, Helvetica, sans-serif;}
         form {border: 3px solid #f1f1f1;}
@@ -76,21 +77,21 @@
     </div>
 
     <div class="container">
-        <label for="uname"><b>Username</b></label>
-        <input type="text" id="uname" placeholder="Enter Username" name="uname" required>
+        <label for="nickname"><b>Username</b></label>
+        <input type="text" id="nickname" placeholder="Enter Nickname" name="nickname" required>
 
-        <label for="psw"><b>Password</b></label>
-        <input type="password" id="psw" placeholder="Enter Password" name="psw" required>
+        <label for="password"><b>Password</b></label>
+        <input type="password" id="password" placeholder="Enter Password" name="password" required>
 
-        <button type="submit">Login</button>
+        <a href="index2.html"> <button type="submit">Login</button></a>
         <label>
             <input type="checkbox" checked="checked" name="remember"> Remember me
         </label>
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
-        <button type="button" class="cancelbtn">Cancel</button>
-        <span class="psw">Forgot <a href="#">password?</a></span>
+        <a href="index.html"><button type="button" class="cancelbtn"> Cancel</button></a>
+        <span class="psw">New here? <a href="SignUp.html">Create account</a></span>
     </div>
 </form>
 
