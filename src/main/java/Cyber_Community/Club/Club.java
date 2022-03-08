@@ -5,6 +5,7 @@ import Cyber_Community.User.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.yaml.snakeyaml.events.Event;
 
 import javax.persistence.GeneratedValue;
@@ -22,9 +23,14 @@ public class Club {
     private Long id;
     private String name;
     private String description;
-    private String admin;
     private String contact;
     private List<User> members;
+    private String admin;
+    @Autowired
+    BlogHolder blogHolder;
+    @Autowired
+    BlogHolder userHolder;
+
 
     public Club(String name,String description,String admin) {
         this.name = name;
