@@ -23,14 +23,14 @@ public class Club {
     private String name;
     private String description;
     private String contact;
-    private User admin;
+    private String admin;
 
     @Autowired
     BlogHolder blogHolder;
     @Autowired
     BlogHolder userHolder;
 
-    public Club(String name,String description,User admin) {
+    public Club(String name,String description,String admin) {
         this.name = name;
         this.description=description;
         this.admin=admin;
