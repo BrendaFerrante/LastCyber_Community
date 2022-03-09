@@ -32,8 +32,7 @@ public class Blog {
         this.content = c;
         this. resume = r;
         this.author = a;
-        Date d = new Date();
-        this.date = d;
+        this.date = new Date();
     }
 
     public void setId(long id){

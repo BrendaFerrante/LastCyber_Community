@@ -32,18 +32,25 @@ public class Club {
     private List<User> members;
     private String admin;
 
-    private Map<Long, Blog> blogs= new ConcurrentHashMap<>();
+    private List<Blog> blogs = new ArrayList<>();
 
     public Club(String name,String description,String admin) {
         Blog blog=new Blog("Blog test","2","1","2");
         this.name = name;
         this.description=description;
         this.admin=admin;
-        this.blogs.put(blog);
+        this.blogs.add(blog);
     }
 
     public void add(User u){
         this.members.add(u);
     }
 
+    public void add(Blog b){
+        this.blogs.add(b);
+    }
+
+    public void setId(long i) {
+        this.id_Club = i;
+    }
 }
