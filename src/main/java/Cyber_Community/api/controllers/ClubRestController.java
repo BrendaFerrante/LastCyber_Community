@@ -1,5 +1,7 @@
-package Cyber_Community.Club;
+package Cyber_Community.api.controllers;
 
+import Cyber_Community.entities.ClubHolder;
+import Cyber_Community.entities.Club;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

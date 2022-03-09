@@ -1,6 +1,7 @@
-package Cyber_Community.User;
+package Cyber_Community.api.controllers;
 
 
+import Cyber_Community.entities.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,5 +1,6 @@
-package Cyber_Community.Club;
+package Cyber_Community.entities;
 
+import Cyber_Community.entities.Blog;
 import org.springframework.stereotype.Service;
 
 import java.util.*;

@@ -1,9 +1,10 @@
-package Cyber_Community.Club;
+package Cyber_Community.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,7 +34,7 @@ public class Blog {
         this. resume = r;
         this.author = a;
         Date d = new Date();
-        this.date = d;
+        this.date = new Date();
     }
 
     public void setId(long id){

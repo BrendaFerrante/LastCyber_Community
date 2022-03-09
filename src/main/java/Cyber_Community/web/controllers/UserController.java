@@ -1,5 +1,6 @@
-package Cyber_Community.User;
+package Cyber_Community.web.controllers;
 
+import Cyber_Community.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +11,7 @@ import java.util.Date;
 @Controller
 public class UserController {
     @Autowired
-    UserHolder UserHolder;
+    Cyber_Community.entities.UserHolder UserHolder;
 
     /*public UserController(){
         Date date = new Date();

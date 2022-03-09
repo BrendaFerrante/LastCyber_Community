@@ -1,4 +1,4 @@
-package Cyber_Community.User;
+package Cyber_Community.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +15,6 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

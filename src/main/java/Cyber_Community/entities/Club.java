@@ -1,7 +1,7 @@
-package Cyber_Community.Club;
+package Cyber_Community.entities;
 
 
-import Cyber_Community.User.User;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

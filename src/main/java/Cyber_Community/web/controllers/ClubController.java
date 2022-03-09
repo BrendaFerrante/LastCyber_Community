@@ -1,18 +1,20 @@
-package Cyber_Community.Club;
+package Cyber_Community.web.controllers;
 
+import Cyber_Community.entities.ClubHolder;
+import Cyber_Community.entities.Club;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-
+@RequestMapping("/club")
 @Controller
 public class ClubController {
     @Autowired
     ClubHolder clubHolder;
 
-    @GetMapping("/club")
+    @GetMapping("")
     public String club(Model model) {
         model.addAttribute("silent",true);
         model.addAttribute("clubs", clubHolder.getclubs());
@@ -28,7 +30,7 @@ public class ClubController {
 
     @PostMapping("/club/new")
     @ResponseStatus(HttpStatus.CREATED)
-    public String postClub(Model model,Club club){
+    public String postClub(Model model, Club club){
         clubHolder.addClub(club);
         return "ClubSaved_template";
     }

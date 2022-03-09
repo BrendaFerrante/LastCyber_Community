@@ -1,6 +1,7 @@
-package Cyber_Community.Club;
+package Cyber_Community.entities;
 
-import Cyber_Community.User.User;
+import Cyber_Community.entities.User;
+import Cyber_Community.entities.Club;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -13,7 +14,7 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 @Service
 public class ClubHolder {
-    private Map<Long,Club> clubs= new ConcurrentHashMap<>();
+    private Map<Long, Club> clubs= new ConcurrentHashMap<>();
     private AtomicLong lastId=new AtomicLong();
 
     public ClubHolder(){
