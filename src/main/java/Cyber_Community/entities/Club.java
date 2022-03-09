@@ -30,11 +30,12 @@ public class Club {
     private List<Blog> blogs = new ArrayList<>();
     private String admin;
 
-    public Club(String name,String description,String admin) {
+    public Club(String name,String description,String admin,Long id) {
         Blog blog=new Blog("Blog test","2","1","2");
         this.name = name;
         this.description=description;
         this.admin=admin;
+        this.id=id;
         this.blogs.add(blog);
     }
     public void add(Blog blog){
@@ -44,5 +45,7 @@ public class Club {
     public void add(User u){
         members.add(u);
     }
+
+
 
 }

@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-@RequestMapping("/api/club/{num}")
+@RequestMapping("/api/club/{num}/blog")
 @RestController
 public class BlogRestController {
     @Autowired
     BlogHolder blogHolder;
 
-    @PostMapping("/blog/new") //Add a blog to the map
+    @PostMapping("/new") //Add a blog to the map
     @ResponseStatus(HttpStatus.CREATED)
     public Blog AddBlog(@RequestBody Blog blog){
         blogHolder.add(blog);
@@ -32,7 +32,7 @@ public class BlogRestController {
         }
     }
 
-    @DeleteMapping("/blog/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Blog> deleteBlog(@PathVariable long id){
         Blog blog = blogHolder.remove(id);
         if(blog != null){
@@ -42,7 +42,7 @@ public class BlogRestController {
         }
     }
 
-    @PutMapping("/blog/update/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Blog> updateBlog(@PathVariable long id, @RequestBody Blog upBlog){
         Blog blog = blogHolder.getBlog(id);
         if (blog != null){

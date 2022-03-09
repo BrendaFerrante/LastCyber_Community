@@ -5,7 +5,6 @@
     <title>Blog</title>
 </head>
 <body style="padding-left: 20px; padding-top: 50px">
-
 <p> <b>{{blog.title}}</b></p> <br>
 
 <p>Resume: {{blog.resume}} </p> <br>
@@ -14,11 +13,12 @@
 <br>
 <p>{{blog.content}}</p>
 <br>
+
 {{#silent}}
 <a href="DeleteBlog.html"><button class="w3-button w3-black "> Edit Blog </button></a>
 <a href="EditBlog.html"><button class="w3-button w3-red "> Delete </button></a>
 <br>
-{{silent}}
+{{/silent}}
 
 <a href=javascript:history.back()> <button type="button" class="cancelbtn">Go Back</button></a>
 <br>

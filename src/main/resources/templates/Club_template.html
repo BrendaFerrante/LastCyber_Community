@@ -47,11 +47,12 @@
 <p>Name: {{club.name}}</p>
 <p>Description: {{club.description}}</p>
 <p>Admin: {{club.admin}}</p>
+    <p>{{club.id}}</p>
 <p>Blogs:</p>
 
 <p>
 {{#club.blogs}}
-<a href="blog/{{-index}}"> {{title}}</a><br>
+<a href="{{club.id}}/blog/{{-index}}"> {{title}}</a><br>
 {{/club.blogs}}
 </p>
 

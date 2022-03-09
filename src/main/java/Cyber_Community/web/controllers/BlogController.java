@@ -2,13 +2,14 @@ package Cyber_Community.web.controllers;
 
 import Cyber_Community.entities.BlogHolder;
 import Cyber_Community.entities.Blog;
+import Cyber_Community.entities.ClubHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/club/1/blog")
+@RequestMapping("/club/{num}/blog")
 @Controller
 public class BlogController {
     @Autowired
