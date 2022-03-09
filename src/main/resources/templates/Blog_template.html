@@ -14,11 +14,12 @@
 <br>
 <p>{{blog.content}}</p>
 <br>
-{{#silent.author}}
-<a href="DeleteBlog.html"><button class="w3-button w3-black "> Edit Blog </button></a>
-<a href="EditBlog.html"><button class="w3-button w3-red "> Delete </button></a>
+<!--If you are the author you can edit or delete the blog-->
+{{#silent}}
+<a href="/DeleteBlog.html"><button class="w3-button w3-black "> Delete Blog </button></a>
+<a href="/EditBlog.html"><button class="w3-button w3-red "> Edit Blog </button></a>
 <br>
-{{/silent.author}}
+{{/silent}}
 
 <a href=javascript:history.back()> <button type="button" class="cancelbtn">Go Back</button></a>
 <br>

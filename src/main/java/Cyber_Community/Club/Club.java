@@ -1,7 +1,7 @@
 package Cyber_Community.Club;
 
 
-import Cyber_Community.User.User;
+import Cyber_Community.User.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +13,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -46,11 +45,8 @@ public class Club {
         this.members.add(u);
     }
 
-    public void add(Blog b){
-        this.blogs.add(b);
-    }
-
     public void setId(long i) {
         this.id_Club = i;
     }
+
 }

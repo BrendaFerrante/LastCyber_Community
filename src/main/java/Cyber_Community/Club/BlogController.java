@@ -7,23 +7,30 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/club")
 public class BlogController {
     @Autowired
     BlogHolder blogHolder;
+
+    @GetMapping("/") //View one blog
+    public String getBlogs (Model model){
+        model.addAttribute("items",blogHolder.getAllBlogs());
+        return "Club_template";
+    }
+
+    @GetMapping("/blog/{id}") //View one blog
+    public String viewBlog(Model model, @PathVariable long id) {
+        //If you are the author you can edit or delete the blog
+        model.addAttribute("silent",true);
+        model.addAttribute("blog", blogHolder.getBlog(id));
+        return "Blog_template";
+    }
 
     @PostMapping("/blog/new") //Add a new blog
     @ResponseStatus(HttpStatus.CREATED)
     public String AddBlog(Model model, Blog blog) {
         blogHolder.add(blog);
-        return "SavedBlog_template";
-    }
 
-    @GetMapping("/blog/{id}") //View one blog
-    public String viewBlog(Model model, @PathVariable long id) {
-        model.addAttribute("silent",true);
-        model.addAttribute("blog", blogHolder.getBlog(id));
-        return "Blog_template";
+        return "SavedBlog_template";
     }
 
     @DeleteMapping("/blog/delete/{id}") //Delete one blog
@@ -36,6 +43,7 @@ public class BlogController {
     public String updateBlog(Model model, Blog upBlog, @PathVariable long id){
         blogHolder.add(id, upBlog);
         model.addAttribute("blog", blogHolder.getBlog(id));
+        model.addAttribute("id",id);
         return "Blog_template";
     }
 }

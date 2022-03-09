@@ -13,7 +13,7 @@ public class BlogHolder {
 
     public BlogHolder(){
         Date date=new Date();
-        blogs.put(lastID_Blog.incrementAndGet(),new Blog("new blog","new blog","new blog","new blog"));
+        blogs.put(lastID_Blog.incrementAndGet(),new Blog("new blog","new blog","new blog","Thos os a test"));
     }
 
     public void add(Blog b) { //set the id too
@@ -21,6 +21,7 @@ public class BlogHolder {
         b.setId(id);
         this.blogs.put(id, b);
     }
+
     public void add(long id, Blog b) {
         this.blogs.put(id, b);
     }

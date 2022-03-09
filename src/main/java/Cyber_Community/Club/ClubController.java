@@ -22,7 +22,6 @@ public class ClubController {
     @GetMapping("/club/{id}")
     public String getClub(Model model,@PathVariable long id){
         model.addAttribute("club",clubHolder.getClub(id));
-        //clubHolder.getClub(id).blogHolder.
         return "Club_template";
     }
 
@@ -32,13 +31,13 @@ public class ClubController {
         clubHolder.addClub(club);
         return "ClubSaved_template";
     }
-    @DeleteMapping(("/club/{id}"))
+    @DeleteMapping(("/club/delete/{id}"))
     public String deleteClub(Model model,@PathVariable long id){
         model.addAttribute("clubs", clubHolder.getclubs());
         clubHolder.deleteClub(id);
         return "ClubDeleted_template";
     }
-    @PutMapping("/club/{id}")
+    @PutMapping("/club/put/{id}")
     public String putClub(Model model,@PathVariable long id,Club club){
         clubHolder.changeClub(id,club);
         return "ClubSaved_template";
