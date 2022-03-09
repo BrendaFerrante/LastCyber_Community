@@ -35,10 +35,16 @@
 </div>
 <!-- Header -->
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
-    <h1 class="w3-margin w3-jumbo">{{user.name}}</h1>
-    <!--button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">See all the club</button-->
-</header>
+    <h1 class="w3-margin w3-jumbo">Your Profile</h1>
 
+</header>
+<h1 style="text-align: center">Profile</h1>
+<ul style="text-align: center">
+    {{#user}}
+    <a href="user/{{id}}">· {{name}}</a>
+    <br>
+    {{/user}}
+</ul>
     <p>Nickname: {{user.nickname}}</p>
     <p>Email: {{user.email}}</p>
     <p>Birthdate: {{user.date}}</p>

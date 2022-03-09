@@ -31,17 +31,16 @@
         <a href="/" class="w3-bar-item w3-button w3-padding-large">Home</a>
         <a href="/club" class="w3-bar-item w3-button w3-padding-large">Club Space</a>
         <a href="/club" class="w3-bar-item w3-button w3-padding-large">Learn more about us</a>
-        <a href="/user/id" class="w3-bar-item w3-button w3-padding-large"> Profile</a>
+        <a href="/user/{{id}}" class="w3-bar-item w3-button w3-padding-large"> Profile</a>
         <a href="/user" class="w3-bar-item w3-button w3-padding-large"> All users</a>
     </div>
 </div>
 <!-- Header -->
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
-    <h1 class="w3-margin w3-jumbo">All actual users</h1>
-    <!--button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">See all the club</button-->
+    <h1 class="w3-margin w3-jumbo"></h1>
 </header>
 
-<p>Nickname: {{User.nickname}}</p>
+<p>Nickname: {{user.nickname}}</p>
 <p>Email: {{user.email}}</p>
 <p>Birthdate: {{user.date}}</p>
 <p>Biography: {{user.biography}}</p>
