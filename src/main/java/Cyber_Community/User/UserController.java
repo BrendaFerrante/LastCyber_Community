@@ -4,12 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import java.util.Date;
 
 
 @Controller
 public class UserController {
     @Autowired
     UserHolder UserHolder;
+
+    /*public UserController(){
+        Date date = new Date();
+        UserHolder.add(0, new User (0,false,"anonymus","b.fe@al.es","pass",date,"Hello"));
+    }*/
 
     @GetMapping("/user")
     public String usersList(Model model) {
@@ -44,8 +50,5 @@ public class UserController {
         UserHolder.removeUser(id);
         return "UserDeleted_template";
     }
-
-
-
 
 }

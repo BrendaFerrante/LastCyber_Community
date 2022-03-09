@@ -5,6 +5,7 @@ import Cyber_Community.Club.Club;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
@@ -13,8 +14,10 @@ import java.util.concurrent.atomic.AtomicLong;
 public class UserHolder {
     private Map<Long, User> users= new ConcurrentHashMap<>();
     private AtomicLong lastId_User=new AtomicLong();
-    public UserHolder(){
-        this.users.put(this.lastId_User.incrementAndGet(),new User());
+
+    public UserHolder(){ //En prueba; Antes: this.users.put(this.lastId_User.incrementAndGet(),new User ())
+        Date date = new Date();
+        this.users.put(this.lastId_User.incrementAndGet(),new User(0,false,"anonymus","b.fe@al.es","pass",date,"Hello"));
     }
 
     public void add(User user) {
