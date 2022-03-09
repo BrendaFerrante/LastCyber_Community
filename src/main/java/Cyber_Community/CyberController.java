@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Transactional
 public class CyberController {
     @GetMapping("/")
-    public String root(Model model) {
+    public String root() {
         return "index";
     }
     @GetMapping("/login")
@@ -22,17 +22,13 @@ public class CyberController {
         return "Login.html";
     }
 
-    @GetMapping("/login/error")
-    public String loginError(Model model) {
-        model.addAttribute("loginError","Incorrect username o password");
-        return "Login.html";
-    }
-
-
     @GetMapping("/signup")
     public String signUp() {
-        return "SignUp.html";
+        return "signUp.html";
     }
 
-
+    @GetMapping("/profile")
+    public String profile(){
+        return "User_template";
+    }
 }

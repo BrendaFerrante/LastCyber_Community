@@ -47,4 +47,8 @@ public class ClubHolder {
         return this.clubs.get(id);
     }
 
+    public void addBlog(Blog blog,Long id){
+        this.clubs.get(id).add(blog);
+    }
+
 }

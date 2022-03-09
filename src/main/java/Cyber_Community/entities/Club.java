@@ -37,6 +37,9 @@ public class Club {
         this.admin=admin;
         this.blogs.add(blog);
     }
+    public void add(Blog blog){
+        this.blogs.add(blog);
+    }
 
     public void add(User u){
         members.add(u);

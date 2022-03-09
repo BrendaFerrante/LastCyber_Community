@@ -21,26 +21,26 @@ public class ClubController {
         return "IndexClub_template";
     }
 
-    @GetMapping("/club/{id}")
+    @GetMapping("/{id}")
     public String getClub(Model model,@PathVariable long id){
         model.addAttribute("club",clubHolder.getClub(id));
         //clubHolder.getClub(id).blogHolder.
         return "Club_template";
     }
 
-    @PostMapping("/club/new")
+    @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
     public String postClub(Model model, Club club){
         clubHolder.addClub(club);
         return "ClubSaved_template";
     }
-    @DeleteMapping(("/club/{id}"))
+    @DeleteMapping(("/{id}"))
     public String deleteClub(Model model,@PathVariable long id){
         model.addAttribute("clubs", clubHolder.getclubs());
         clubHolder.deleteClub(id);
         return "ClubDeleted_template";
     }
-    @PutMapping("/club/{id}")
+    @PutMapping("/{id}")
     public String putClub(Model model,@PathVariable long id,Club club){
         clubHolder.changeClub(id,club);
         return "ClubSaved_template";

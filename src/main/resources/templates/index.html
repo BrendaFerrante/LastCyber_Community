@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html >
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
+    var getImport = document.querySelector('#template-file');
+    var getContent = getImport.import.querySelector('#content');
     <title>Main page</title>
-    <meta charset="UTF-8">
-    meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="import" href="other.html">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
@@ -13,8 +14,15 @@
         .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
         .fa-anchor,.fa-coffee {font-size:200px}
     </style>
+    <script src="jquery.js"></script>
+    <script>
+        $(function (){
+            $(".header").load()("header.html");
+        });
+    </script>
 </head>
 <body>
+
 
 
 <!-- Navbar -->
@@ -41,7 +49,7 @@
     <p class="w3-xlarge">Welcome to our page</p>
     <button class="w3-button w3-light-blue w3-padding-large w3-large w3-margin-top"><a href="/signup" >Join us</a></button>
 </header>
-
+<div class="header"></div>
 
 
 <script>
