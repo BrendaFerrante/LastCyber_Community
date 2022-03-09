@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-@RequestMapping("/api/club/{num}")
+@RequestMapping("/api/club")
 @RestController
 public class BlogRestController {
     @Autowired

@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/club/{num}")
+@RequestMapping("/club")
 public class BlogController {
     @Autowired
     BlogHolder blogHolder;

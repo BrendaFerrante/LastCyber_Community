@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.yaml.snakeyaml.events.Event;
 
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,8 @@ import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Data
 @NoArgsConstructor
@@ -22,24 +25,25 @@ import java.util.List;
 public class Club {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long id_Club;
     private String name;
     private String description;
     private String contact;
     private List<User> members;
-    private List<Blog> blogs = new ArrayList<>();
     private String admin;
+
+    private Map<Long, Blog> blogs= new ConcurrentHashMap<>();
 
     public Club(String name,String description,String admin) {
         Blog blog=new Blog("Blog test","2","1","2");
         this.name = name;
         this.description=description;
         this.admin=admin;
-        this.blogs.add(blog);
+        this.blogs.put(blog);
     }
 
     public void add(User u){
-        members.add(u);
+        this.members.add(u);
     }
 
 }
