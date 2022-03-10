@@ -9,9 +9,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
-/**
- * Created by Enzo Cotter on 07/03/2022.
- */
 @Service
 public class ClubHolder {
     private Map<Long, Club> clubs= new ConcurrentHashMap<>();
@@ -19,7 +16,7 @@ public class ClubHolder {
 
     public ClubHolder(){
         User user=new User();
-        this.clubs.put(this.lastId.incrementAndGet(),new Club("CLub1","prueba","A",this.lastId.longValue()));
+        this.clubs.put(this.lastId.incrementAndGet(),new Club("Club1","prueba","A",this.lastId.longValue()));
     }
 
     public void addClub(Club Club){
