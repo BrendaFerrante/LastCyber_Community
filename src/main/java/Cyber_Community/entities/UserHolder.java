@@ -17,6 +17,7 @@ public class UserHolder {
     public UserHolder(){ //En prueba; Antes: this.users.put(this.lastId_User.incrementAndGet(),new User ())
         Date date = new Date();
         this.users.put(this.lastId_User.incrementAndGet(),new User(0,false,"anonymus","b.fe@al.es","pass",date,"Hello"));
+        this.users.put(this.lastId_User.incrementAndGet(),new User(0,true,"Brenda","hola@h.es","pass",date,"Good Morning"));
     }
 
     public void add(User user) {
