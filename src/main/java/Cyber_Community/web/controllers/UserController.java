@@ -35,15 +35,18 @@ public class UserController {
         return "UserSaved";
     }
 
-    @GetMapping("/user/update/{id}")
+    /*@GetMapping("/logged/user/update/{id}")
+    public String updUser(){return "SignUp.html";}*/
+
+    @PutMapping("/user/update/{id}")
     public String updateUser(Model model, long id,  User newUser) {
         UserHolder.add(id, newUser);
         model.addAttribute("user",UserHolder.getUser(id));
-        return "User_template";
+        return "/logged";
     }
 
-    @DeleteMapping("/user/delete/{id}")
-    public String deleteUser(Model model, long id) {
+    @GetMapping("/user/delete/{id}")
+    public String deleteUser(Model model, @PathVariable long id) {
         model.addAttribute("user", UserHolder.getUser(id));
         UserHolder.removeUser(id);
         return "UserDeleted_template";
