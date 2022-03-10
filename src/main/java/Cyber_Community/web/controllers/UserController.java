@@ -19,6 +19,9 @@ public class UserController {
         return "UserList_template";
     }
 
+    @GetMapping("/logged")
+    public String loggedUser (){return "index2";}
+
     @GetMapping("/logged/user/{id}")
     public String getUser(Model model, @PathVariable long id) {
         User user = UserHolder.getUser(id);
@@ -36,7 +39,7 @@ public class UserController {
     public String updateUser(Model model, long id,  User newUser) {
         UserHolder.add(id, newUser);
         model.addAttribute("user",UserHolder.getUser(id));
-        return "EditUser_template";
+        return "User_template";
     }
 
     @DeleteMapping("/user/delete/{id}")

@@ -25,8 +25,14 @@ public class CyberController {
         return "index";
     }
 
-    @GetMapping("/logged")
-    public String loggedUser (){return "index2";}
+    @GetMapping("/lmau")
+    public String lmau(){return "Lmau_template";}
+
+    @GetMapping("/logged/lmau")
+    public String lmauLog(){return "LmauLog_template";}
+
+    @GetMapping("/logged/admin/lmau")
+    public String lmauLogAd(){return "LmauLogAd_template";}
 
     @GetMapping("/logged/club")
     public String logClubPage (Model model){

@@ -23,7 +23,7 @@ public class UserRestController {
         return users.values();
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/logged/user/{id}")
     public ResponseEntity<User> getUser(@PathVariable long id) {
         User user = users.get(id);
         if (user != null) {

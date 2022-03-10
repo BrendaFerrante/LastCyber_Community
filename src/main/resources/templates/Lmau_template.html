@@ -1,7 +1,7 @@
 <!DOCTYPE html >
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Main page</title>
+    <title>Us</title>
     <link rel="import" href="other.html">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
@@ -27,9 +27,9 @@
 <div class="w3-top">
     <div class="w3-bar w3-card w3-left-align w3-large w3-indigo">
         <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-indigo w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-        <a href="/" class="w3-bar-item w3-button w3-padding-large w3-black"> <b><u>Home</u></b> </a>
+        <a href="/" class="w3-bar-item w3-button w3-padding-large w3-hover-white"> <b><u>Home</u></b> </a>
         <a href="/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Club Space</a>
-        <a href="/lmau" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
+        <a href="/lmau" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-black">Learn more about us</a>
         <a href="/login" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
     </div>
     <!-- Navbar on small screens -->
@@ -40,27 +40,20 @@
         <a href="/login" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
     </div>
 </div>
-
 <!-- Header -->
 <header class="w3-container w3-black w3-center" style="padding:10% 0px">
     <h1 class="w3-margin w3-jumbo w3-w3-light-grey">Cyber community</h1>
-    <p class="w3-xlarge">Welcome to our page</p>
-    <button class="w3-button w3-light-blue w3-padding-large w3-large w3-margin-top"><a href="/signup" >Join us</a></button>
+    <p class="w3-xlarge">Learn more about us</p>
+    <img src="https://www.secplicity.org/wp-content/uploads/2018/06/iStock-652217752-960x640.jpg" width="500" height="250" >
 </header>
 <div class="header"></div>
 
+<div style="padding-left:20px">
+<h1>Who are we?</h1>
+<p>We are a group of friends that decided to make community for an easier way of connecting with people</p>
 
-<script>
-    // Used to toggle the menu on small screens when clicking on the menu button
-    function myFunction() {
-        var x = document.getElementById("navDemo");
-        if (x.className.indexOf("w3-show") == -1) {
-            x.className += " w3-show";
-        } else {
-            x.className = x.className.replace(" w3-show", "");
-        }
-    }
-</script>
-
+<h1>What can you do?</h1>
+<p>In our web you can create new clubs regarding interesting subjects, as well as writing blog posts in the existing clubs about news on the topics</p>
+</div>
 </body>
 </html>
