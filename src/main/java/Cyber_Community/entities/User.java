@@ -21,6 +21,7 @@ public class User {
 
     private long id_User= -1;
 
+
     private boolean admin;
 
     private String nickname; //Unique
