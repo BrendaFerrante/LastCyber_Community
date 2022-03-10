@@ -36,7 +36,7 @@ public class ClubRestController {
     }
 
 
-    @PostMapping("/club/")
+    @PostMapping("/club/new")
     @ResponseStatus(HttpStatus.CREATED)
     public Club postClub(@RequestBody Club Club){
         clubHolder.addClub(Club);
