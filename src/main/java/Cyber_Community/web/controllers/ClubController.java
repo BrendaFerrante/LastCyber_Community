@@ -1,7 +1,9 @@
 package Cyber_Community.web.controllers;
 
+
 import Cyber_Community.entities.ClubHolder;
 import Cyber_Community.entities.Club;
+import Cyber_Community.web.error_handing.exceptons.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -23,9 +25,12 @@ public class ClubController {
 
     @GetMapping("/{id}")
     public String getClub(Model model,@PathVariable long id){
-        model.addAttribute("club",clubHolder.getClub(id));
-        model.addAttribute("id",id);
-        //clubHolder.getClub(id).blogHolder.
+        Club club=clubHolder.getClub(id);
+        if(club==null){
+            throw new NotFoundException("Club "+ id +" not found");
+            //return "error/404";
+        }
+        model.addAttribute("club",club);
         return "Club_template";
     }
 
