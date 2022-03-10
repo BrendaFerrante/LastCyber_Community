@@ -1,4 +1,4 @@
-package Cyber_Community.web;
+package Cyber_Community;
 
 /*
  *  Handle the mian page
@@ -24,8 +24,7 @@ public class CyberController {
         return "index";
     }
 
-    @GetMapping("/logged")
-    public String loggedUser (){return "index2";}
+
 
     @GetMapping("/logged/club")
     public String logClubPage (Model model){
