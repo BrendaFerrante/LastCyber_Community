@@ -35,7 +35,7 @@ public class UserController {
         return "UserSaved";
     }
 
-    @PutMapping("/user/update/{id}")
+    @GetMapping("/user/update/{id}")
     public String updateUser(Model model, long id,  User newUser) {
         UserHolder.add(id, newUser);
         model.addAttribute("user",UserHolder.getUser(id));
