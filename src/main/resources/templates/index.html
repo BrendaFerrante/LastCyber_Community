@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html >
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>AddClub</title>
+    <title>Main page</title>
     <link rel="import" href="other.html">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
@@ -22,43 +21,46 @@
 </head>
 <body>
 
+
+
 <!-- Navbar -->
 <div class="w3-top">
     <div class="w3-bar w3-card w3-left-align w3-large w3-indigo">
         <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-indigo w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
         <a href="/" class="w3-bar-item w3-button w3-padding-large w3-black"> <b><u>Home</u></b> </a>
         <a href="/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Club Space</a>
-        <a href="/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
+        <a href="/lmau" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
         <a href="/login" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
     </div>
     <!-- Navbar on small screens -->
     <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
         <a href= "/" class="w3-bar-item w3-button w3-padding-large">Home</a>
         <a href="/club" class="w3-bar-item w3-button w3-padding-large">Club Space</a>
-        <a href="/club" class="w3-bar-item w3-button w3-padding-large">Learn more about us</a>
+        <a href="/lmau" class="w3-bar-item w3-button w3-padding-large">Learn more about us</a>
         <a href="/login" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
     </div>
 </div>
+
 <!-- Header -->
 <header class="w3-container w3-black w3-center" style="padding:10% 0px">
-    <h1 class="w3-margin w3-jumbo w3-w3-light-grey">Creat a new club</h1>
+    <h1 class="w3-margin w3-jumbo w3-w3-light-grey">Cyber community</h1>
+    <p class="w3-xlarge">Welcome to our page</p>
+    <button class="w3-button w3-light-blue w3-padding-large w3-large w3-margin-top"><a href="/signup" >Join us</a></button>
 </header>
 <div class="header"></div>
-<form action="club/delete" method="post">
-    <p>Name of the club: </p>
-    <input type='text' name='name'  placeholder="Enter the name here"/>
-    <p>Admin user of the club</p>
-    <input type='text' name='admin'   placeholder="Enter the name of admin here"/>
-    <p>How to contact the admin</p>
-    <input type='text' name='contact'   placeholder="Enter the contact here"/>
-    <p>Brief description of the club</p>
-    <textarea name='description' rows=5 cols=40 placeholder="Enter the description here"></textarea>
-    <input type="submit" value="submit"/>
-</form>
-<a href=javascript:history.back()><button type="button" class="cancelbtn">Cancel</button></a>
+
+
+<script>
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+</script>
+
 </body>
 </html>
-
-
-
-
