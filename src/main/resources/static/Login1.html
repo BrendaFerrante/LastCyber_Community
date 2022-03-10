@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+<h2>Login Form</h2>
+
+<form action="/logged" >
+  <div class="imgcontainer">
+    <img src="https://i.blogs.es/9392a0/whatsapp-anonimo/1366_521.jpg" width="1" height="200" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="nickname"><b>Username</b></label>
+    <input type="text" id="nickname" placeholder="Enter Nickname" name="nickname" required>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" id="password" placeholder="Enter Password" name="password" required>
+
+     <button href="/logged" type="submit">Login</button>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <a href="javascript:history.back()"><button type="button" class="cancelbtn"> Cancel</button></a>
+    <span class="psw">New here? <a href="SignUp.html">Create account</a></span>
+  </div>
+</form>
+
+</body>
+</html>

@@ -18,7 +18,8 @@ public class ClubController {
 
     @GetMapping("")
     public String club(Model model) {
-        model.addAttribute("silent",true);
+        model.addAttribute("logged",false);
+        model.addAttribute("admin",true);
         model.addAttribute("clubs", clubHolder.getclubs());
         return "IndexClub_template";
     }
@@ -40,7 +41,14 @@ public class ClubController {
         clubHolder.addClub(club);
         return "ClubSaved_template";
     }
-    @DeleteMapping(("/delete"))
+
+    @GetMapping("/delete")
+    public String deleteClub(Model model){
+        model.addAttribute("clubs", clubHolder.getclubs());
+        return "ClubDelete_template";
+    }
+
+    @GetMapping(("/delete/{id}"))
     public String deleteClub(Model model,@PathVariable long id){
         Club club=clubHolder.getClub(id);
         if(club==null){
@@ -53,5 +61,11 @@ public class ClubController {
     public String putClub(Model model,@PathVariable long id,Club club){
         clubHolder.changeClub(id,club);
         return "ClubSaved_template";
+    }
+    @GetMapping("/logged/club")
+    public String logClubPage (Model model){
+        model.addAttribute("silent",true);
+        model.addAttribute("clubs", clubHolder.getclubs());
+        return "LoggedIndexClub_template";
     }
 }
