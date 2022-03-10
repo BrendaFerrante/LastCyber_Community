@@ -25,27 +25,26 @@ public class UserController {
     }
 
     @GetMapping("/user/{id}")
-    public String getUser(Model model,  long id) {
-        User u = UserHolder.getUser(id-1);
+    public String getUser(Model model, @PathVariable long id) {
         model.addAttribute("user", UserHolder.getUser(id));
+        model.addAttribute("id", id);
         return "User_template";
     }
 
     @PostMapping("/user/new")
-    public String createUser(Model model, long id, User newUser) {
+    public String createUser(User newUser) {
         UserHolder.add(newUser);
-        model.addAttribute("user", UserHolder.getUser(id));
-        return "User_template";
+        return "UserSaved";
     }
 
-    @PutMapping("/user/{id}")
+    @PutMapping("/user/update/{id}")
     public String updateUser(Model model, long id,  User newUser) {
         UserHolder.add(id, newUser);
         model.addAttribute("user",UserHolder.getUser(id));
         return "EditUser_template";
     }
 
-    @DeleteMapping("/user/{id}")
+    @DeleteMapping("/user/delete/{id}")
     public String deleteUser(Model model, long id) {
         model.addAttribute("user", UserHolder.getUser(id));
         UserHolder.removeUser(id);

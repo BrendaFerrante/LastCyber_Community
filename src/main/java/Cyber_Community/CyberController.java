@@ -15,9 +15,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Transactional
 public class CyberController {
     @GetMapping("/")
-    public String root(Model model) {
+    public String root() {
         return "index";
     }
+
+    @GetMapping("/logged")
+    public String loggedUser (){return "index2";}
+
+    @GetMapping("/logged/club")
+    public String logClubPage (){return "LoggedIndexClub_template";}
+
     @GetMapping("/login")
     public String login() {
         return "Login.html";

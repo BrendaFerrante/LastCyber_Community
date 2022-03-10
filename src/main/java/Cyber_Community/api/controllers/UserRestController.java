@@ -18,7 +18,7 @@ public class UserRestController {
     private Map<Long, User> users = new ConcurrentHashMap<>();
     private AtomicLong lastId = new AtomicLong();
 
-    @GetMapping("/user")
+    @GetMapping("/users")
     public Collection<User> getUsers() {
         return users.values();
     }
@@ -42,7 +42,7 @@ public class UserRestController {
         return user;
     }
 
-    @PutMapping("/user/{id}")
+    @PutMapping("/user/update/{id}")
     public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User newUser) {
 
         User oldUser = users.get(id);
@@ -58,7 +58,7 @@ public class UserRestController {
         }
     }
 
-    @DeleteMapping("/user/{id}")
+    @DeleteMapping("/user/delete/{id}")
     public ResponseEntity<User> deleteUser(@PathVariable long id) {
 
         User user = users.remove(id);
