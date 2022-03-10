@@ -13,7 +13,7 @@ public class UserController {
     @Autowired
     Cyber_Community.entities.UserHolder UserHolder;
 
-    @GetMapping("/user")
+    @GetMapping("/users")
     public String usersList(Model model) {
         model.addAttribute("users", UserHolder.getUsers());
         return "UserList_template";
@@ -21,7 +21,8 @@ public class UserController {
 
     @GetMapping("/logged/user/{id}")
     public String getUser(Model model, @PathVariable long id) {
-        model.addAttribute("user", UserHolder.getUser(id));
+        User user = UserHolder.getUser(id);
+        model.addAttribute("user", user);
         return "User_template";
     }
 

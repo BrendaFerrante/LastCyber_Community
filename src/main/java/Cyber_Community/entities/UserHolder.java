@@ -29,7 +29,7 @@ public class UserHolder {
     }
 
     public Collection<User> getUsers(){
-        return users.values();
+        return this.users.values();
     }
 
     public User getUser(long id){

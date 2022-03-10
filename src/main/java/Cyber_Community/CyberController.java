@@ -1,10 +1,10 @@
 package Cyber_Community;
 
 /*
-*  Handle the mian page
+*  Handle the main page
 */
 
-
+import Cyber_Community.entities.UserHolder;
 import Cyber_Community.entities.Blog;
 import Cyber_Community.entities.ClubHolder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class CyberController {
     @Autowired
     ClubHolder clubHolder;
+    UserHolder UserHolder;
 
     @GetMapping("/")
     public String root() {
@@ -38,10 +39,16 @@ public class CyberController {
     public String loggedAdmin() {return "indexAdmin";}
 
     @GetMapping("/logged/admin/club")
-    public String logAdminClub() {return "LoggedAdminClub_template";}
+    public String logAdminClub(Model model) {
+        model.addAttribute("silent",true);
+        model.addAttribute("clubs", clubHolder.getclubs());
+        return "LoggedAdminClub_template";}
 
     @GetMapping("/allusers")
-    public String usersList() {return "UserList_template";}
+    public String usersList(Model model) {
+        model.addAttribute("silent", true);
+        model.addAttribute("users", UserHolder.getUsers());
+        return "UserList_template";}
 
     @GetMapping("/login")
     public String login() {
@@ -52,5 +59,6 @@ public class CyberController {
     public String signUp() {
         return "signUp.html";
     }
+
 
 }
