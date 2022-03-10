@@ -26,12 +26,21 @@ public class User {
     private String nickname; //Unique
     private String email;
     private String password;
-    private Date birth;
+   // private Date birthday;
     private String biography;
 
+    public User(String nickname,String email,String password, String biography, Boolean admin){
+        this.nickname=nickname;
+        this.email=email;
+        this.password=password;
+        this.biography=biography;
+       // this.birthday = birthday;
+        this.admin=admin;
+        //this.id_User=id_User;
+    }
     @Override
     public String toString() {
-        return "User [id:" + id_User + ", nickname:" + nickname + ", email:" + email + ", admin:" + admin + ", birthday:" + birth + ", biography:" + biography+"]" ;
+        return "User [nickname:" + nickname + ", email:" + email + ", admin:" + admin + ", biography:" + biography+"]" ;
     }
 
     public void setId(long i){

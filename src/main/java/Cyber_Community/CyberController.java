@@ -28,6 +28,9 @@ public class CyberController {
     @GetMapping("/logged/admin")
     public String loggedAdmin() {return "indexAdmin";}
 
+    @GetMapping("/logged/admin/club")
+    public String logAdminClub() {return "LoggedAdminClub_template";}
+
     @GetMapping("/allusers")
     public String usersList() {return "UserList_template";}
 
