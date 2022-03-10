@@ -53,7 +53,11 @@
     <input type='text' name='contact'   placeholder="Enter the contact here"/>
     <p>Brief description of the club</p>
     <textarea name='description' rows=5 cols=40 placeholder="Enter the description here"></textarea>
-    <input type="submit" value="submit"/>
+    <input type="submit" value="submit"/><br>
+    <script src="ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('description');
+    </script>
 </form>
 <a href=javascript:history.back()><button type="button" class="cancelbtn">Cancel</button></a>
 </body>
