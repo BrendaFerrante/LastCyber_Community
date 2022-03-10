@@ -41,8 +41,4 @@ public class CyberController {
         return "signUp.html";
     }
 
-    @GetMapping("/profile")
-    public String profile(){
-        return "User_template";
-    }
 }

@@ -13,6 +13,7 @@ public class UserController {
     @Autowired
     Cyber_Community.entities.UserHolder UserHolder;
 
+
     @GetMapping("/user")
     public String usersList(Model model) {
         model.addAttribute("users", UserHolder.getUsers());
@@ -43,6 +44,12 @@ public class UserController {
         model.addAttribute("user", UserHolder.getUser(id));
         UserHolder.removeUser(id);
         return "UserDeleted_template";
+    }
+
+    @GetMapping("{id}/profile")
+    public String profile(Model model,@PathVariable long id){
+        model.addAttribute("user",UserHolder.getUser(id));
+        return "User_template";
     }
 
 }

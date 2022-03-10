@@ -40,9 +40,12 @@ public class ClubController {
         clubHolder.addClub(club);
         return "ClubSaved_template";
     }
-    @DeleteMapping(("/{id}"))
+    @DeleteMapping(("/delete"))
     public String deleteClub(Model model,@PathVariable long id){
-        model.addAttribute("clubs", clubHolder.getclubs());
+        Club club=clubHolder.getClub(id);
+        if(club==null){
+            throw new NotFoundException("Club "+ id +" not found");
+        }
         clubHolder.deleteClub(id);
         return "ClubDeleted_template";
     }
