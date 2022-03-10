@@ -29,9 +29,8 @@ public class ClubController {
         Club club=clubHolder.getClub(id);
         if(club==null){
             throw new NotFoundException("Club "+ id +" not found");
-            //return "error/404";
         }
-        model.addAttribute("club",club);
+        model.addAttribute("club",clubHolder.getClub(id));
         return "Club_template";
     }
 
@@ -39,7 +38,8 @@ public class ClubController {
     @ResponseStatus(HttpStatus.CREATED)
     public String postClub(Model model, Club club){
         clubHolder.addClub(club);
-        return "ClubSaved_template";
+        model.addAttribute("message","This club has been created");
+        return "message";
     }
 
     @GetMapping("/delete")
@@ -54,13 +54,20 @@ public class ClubController {
         if(club==null){
             throw new NotFoundException("Club "+ id +" not found");
         }
+        model.addAttribute("message","This club has been deleted");
         clubHolder.deleteClub(id);
-        return "ClubDeleted_template";
+        return "message";
     }
-    @PutMapping("/{id}")
+    @GetMapping("/edit")
+    public String EditClub(Model model){
+        model.addAttribute("clubs", clubHolder.getclubs());
+        return "ClubEdit_template";
+    }
+    @GetMapping("/edit1")
     public String putClub(Model model,@PathVariable long id,Club club){
         clubHolder.changeClub(id,club);
-        return "ClubSaved_template";
+        model.addAttribute("message","This club has been edited");
+        return "message";
     }
     @GetMapping("/logged/club")
     public String logClubPage (Model model){

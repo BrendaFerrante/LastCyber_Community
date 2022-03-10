@@ -30,9 +30,10 @@ public class UserController {
     }
 
     @PostMapping("/user/new")
-    public String createUser(User newUser) {
+    public String createUser(User newUser,Model model) {
         UserHolder.add(newUser);
-        return "UserSaved";
+        model.addAttribute("message","This user has been created");
+        return "message";
     }
 
     /*@GetMapping("/logged/user/update/{id}")

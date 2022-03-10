@@ -14,21 +14,21 @@ public class BlogHolder {
 
     public BlogHolder(){
         Date date=new Date();
-        blogs.put(lastID_Blog.incrementAndGet(),new Blog("new blog","new blog","new blog","new blog"));
+        blogs.put(lastID_Blog.incrementAndGet(),new Blog("new blog","new blog","new blog","Thos os a test"));
     }
 
     public void add(Blog b) { //set the id too
         long id = lastID_Blog.incrementAndGet();
         b.setId(id);
-        this.blogs.put(b.getId(), b);
+        this.blogs.put(id, b);
     }
+
     public void add(long id, Blog b) {
         this.blogs.put(id, b);
     }
 
-    public List<Blog> getAllBlogs(){ //Return all blogs in a list
-        List<Blog> newList = new ArrayList<Blog>(this.blogs.values());
-        return newList;
+    public List<Blog> getAllBlogs(){ //Return all blogs in a List
+        return new ArrayList<Blog>(this.blogs.values());
     }
 
     public Blog getBlog(long id){ //Return one blog
