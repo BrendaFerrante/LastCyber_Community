@@ -39,7 +39,7 @@ public class UserController {
     public String createUser(User newUser,Model model) {
         UserHolder.add(newUser);
         model.addAttribute("message","This user has been created");
-        return "message";
+        return "UserSaved";
     }
 
     @GetMapping("/user/update/{id}") //edit a user-get id
