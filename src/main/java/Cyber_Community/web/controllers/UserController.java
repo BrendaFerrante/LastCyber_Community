@@ -28,9 +28,10 @@ public class UserController {
 
     //Get user info
     @GetMapping("/logged/user/{id}")
-    public String getUser(Model model, @PathVariable long id) {
+    public String getUser(Model model, @RequestParam long id) {
         User user = UserHolder.getUser(id);
         model.addAttribute("user", user);
+        model.addAttribute("id_User", id);
         return "User_template";
     }
 
