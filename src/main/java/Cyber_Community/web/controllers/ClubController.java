@@ -9,13 +9,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
+
 @RequestMapping("/club")
 @Controller
+@Transactional
 public class ClubController {
     @Autowired
     ClubHolder clubHolder;
 
-    private long id;
+    public Long idC;
 
     @GetMapping("") //View all clubs
     public String club(Model model) {
@@ -70,14 +73,22 @@ public class ClubController {
 
     @GetMapping("/edit/{id}") //edit a club-get id
     public String putClub(Model model, @PathVariable long id) {
-        this.id = id;
-        return "EditClub.html";
+        this.idC = id;
+        return "/edit";
     }
 
-    @PostMapping("/editClub")
+    /*@PostMapping("/EditClub")
+
     public String editClub(Model model, Club club) {
         clubHolder.changeClub(this.id, club);
         model.addAttribute("message", "This club has been created");
+        return "message";
+    }*/
+    @PostMapping("/EditClub") //Create a club
+    @ResponseStatus(HttpStatus.CREATED)
+    public String EditClub(Model model, Club club) {
+        clubHolder.changeClub(this.idC,club);
+        model.addAttribute("message", "This club has been edited");
         return "message";
     }
 

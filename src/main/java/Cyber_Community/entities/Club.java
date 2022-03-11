@@ -68,6 +68,12 @@ public class Club {
     }
 
 
+    public String getName1(){
+        return this.name;
+    }
+    public void setName1(String name){
+        this.name=name;
+    }
     //Blog part
 
     public List<Blog> getBlogs(){ //Return all blogs
@@ -80,7 +86,6 @@ public class Club {
     public void add(User u){
         members.add(u);
     }
-
     public void addBlog(Blog b) {
         this.blogs.add(b);
     }

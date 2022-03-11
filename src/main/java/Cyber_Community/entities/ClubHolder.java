@@ -34,12 +34,25 @@ public class ClubHolder {
         this.clubs.remove(id);
     }
 
-    public void changeClub(Long id,Club Club){
+    public void changeClub(Long id,Club club){
         Club aux= this.clubs.get(id);
-        aux.setDescription(Club.getDescription());
-        aux.setAdmin(Club.getAdmin());
-        aux.setContact(Club.getContact());
-        aux.setName(Club.getName());
+        if(aux!=null){
+            String a=aux.getName1();
+            if(a!=null){
+                aux.setName("No");
+            }else {
+                aux.setName("SI");
+            }
+        }else {
+            aux.setName("NO");
+        }
+
+       /* if(a!="h8"){
+            aux.setName1(a);
+        }else {
+            aux.setName("NO");
+        }*/
+
     }
 
     public Collection<Club> getclubs(){
