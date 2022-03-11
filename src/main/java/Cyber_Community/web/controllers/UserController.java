@@ -68,7 +68,8 @@ public class UserController {
     public String deleteUser(Model model, @PathVariable long id) {
         model.addAttribute("user", UserHolder.getUser(id));
         UserHolder.removeUser(id);
-        return "UserDeleted_template";
+        model.addAttribute("message", "The user has been delited");
+        return "message";
     }
 
 }
