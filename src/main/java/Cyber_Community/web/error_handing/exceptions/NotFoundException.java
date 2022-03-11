@@ -1,4 +1,4 @@
-package Cyber_Community.web.error_handing.exceptons;
+package Cyber_Community.web.error_handing.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

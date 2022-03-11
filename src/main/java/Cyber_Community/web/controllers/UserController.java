@@ -2,6 +2,7 @@ package Cyber_Community.web.controllers;
 
 import Cyber_Community.entities.User;
 import Cyber_Community.entities.UserHolder;
+import Cyber_Community.web.error_handing.exceptions.NickNameExistedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,9 +39,13 @@ public class UserController {
     //Create new user
     @PostMapping("/user/new")
     public String createUser(User newUser,Model model) {
-        UserHolder.add(newUser);
-        model.addAttribute("message","This user has been created");
-        return "UserSaved";
+        if(UserHolder.equqlNickName(newUser.getNickname())){
+            throw new NickNameExistedException();
+        }else {
+            UserHolder.add(newUser);
+            model.addAttribute("message","This user has been created");
+            return "message";
+        }
     }
 
     @GetMapping("/user/update/{id}") //edit a user-get id

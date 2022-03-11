@@ -2,7 +2,7 @@ package Cyber_Community.web.controllers;
 
 
 import Cyber_Community.entities.*;
-import Cyber_Community.web.error_handing.exceptons.NotFoundException;
+import Cyber_Community.web.error_handing.exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;

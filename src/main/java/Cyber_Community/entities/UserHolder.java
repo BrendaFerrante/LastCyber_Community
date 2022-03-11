@@ -44,5 +44,17 @@ public class UserHolder {
         return users.remove(id);
     }
 
+    /*
+    * Future change id of user to nickname of user
+     */
+    public boolean equqlNickName(String nickName){
+        for(User user:this.getUsers()){
+            if(user.getNickname().equals(nickName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }

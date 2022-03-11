@@ -1,7 +1,6 @@
 package Cyber_Community.web;
 
 
-import Cyber_Community.web.error_handing.exceptons.NickNameExistedException;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;

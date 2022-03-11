@@ -1,4 +1,4 @@
-package Cyber_Community.web.error_handing.exceptons;
+package Cyber_Community.web.error_handing.exceptions;
 
 
 public class UserNotFoundException extends Exception{
