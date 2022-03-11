@@ -23,9 +23,7 @@ public class UserController {
         return "UserList_template";
     }
 
-    //Initial page once you log in
-    @GetMapping("/logged")
-    public String loggedUser (){return "index2";}
+
 
     //Get user info, for now we have to write the id, it will be able to make it on its own when we start working with databases.
     @GetMapping("/logged/user/{id}")

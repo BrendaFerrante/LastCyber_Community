@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoggedController {
     @Autowired
     ClubHolder clubHolder;
+    //Initial page once you log in
+    @GetMapping("")
+    public String loggedUser (){return "index2";}
 
     //Once the person is logged in the website
     @GetMapping("/lmau")

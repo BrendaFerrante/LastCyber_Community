@@ -47,6 +47,7 @@
 
 
 
+
 <script>
   // Used to toggle the menu on small screens when clicking on the menu button
   function myFunction() {
@@ -59,5 +60,17 @@
   }
 </script>
 
+<a href="interaction.html" target="popup" onClick="window.open(this.href, this.target, 'width=300,height=400'); return false;">
+<p>See  <span></span> </p>
+<script>
+  var span = document.getElementsByTagName('span')[0];
+  span.textContent = 'random images'; // change DOM text content
+  span.style.display = 'inline';  // change CSSOM property
+  // create a new element, style it, and append it to the DOM
+  var loadTime = document.createElement('div');
+  loadTime.textContent = 'You loaded this page on: ' + new Date();
+  loadTime.style.color = 'blue';
+  document.body.appendChild(loadTime);
+</script>
 </body>
 </html>
