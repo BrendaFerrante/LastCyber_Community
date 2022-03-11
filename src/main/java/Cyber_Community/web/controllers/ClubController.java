@@ -15,71 +15,88 @@ public class ClubController {
     @Autowired
     ClubHolder clubHolder;
 
+    private long id;
+
     @GetMapping("") //View all clubs
     public String club(Model model) {
-        model.addAttribute("logged",false);
-        model.addAttribute("admin",true);
+        model.addAttribute("logged", false);
+        model.addAttribute("admin", true);
         model.addAttribute("clubs", clubHolder.getclubs());
         return "IndexClub_template";
     }
 
     @GetMapping("/{id}")  //View one club
-    public String getClub(Model model,@PathVariable long id){
-        Club club=clubHolder.getClub(id);
-        if(club==null){
-            throw new NotFoundException("Club "+ id +" not found");
-        } else{
-            model.addAttribute("club",clubHolder.getClub(id));
-            model.addAttribute("blog",clubHolder.getClub(id).getBlogs());
+    public String getClub(Model model, @PathVariable long id) {
+        Club club = clubHolder.getClub(id);
+        if (club == null) {
+            throw new NotFoundException("Club " + id + " not found");
+        } else {
+            model.addAttribute("club", clubHolder.getClub(id));
+            model.addAttribute("blog", clubHolder.getClub(id).getBlogs());
         }
         return "Club_template";
     }
 
     @PostMapping("/new") //Create a club
     @ResponseStatus(HttpStatus.CREATED)
-    public String postClub(Model model, Club club){
+    public String postClub(Model model, Club club) {
         clubHolder.addClub(club);
-        model.addAttribute("message","This club has been created");
+        model.addAttribute("message", "This club has been created");
         return "message";
     }
 
     @GetMapping("/delete") //delete a club
-    public String deleteClub(Model model){
+    public String deleteClub(Model model) {
         model.addAttribute("clubs", clubHolder.getclubs());
         return "ClubDelete_template";
     }
 
     @GetMapping(("/delete/{id}")) //delete a club-get id
-    public String deleteClub(Model model,@PathVariable long id){
-        Club club=clubHolder.getClub(id);
-        if(club==null){
-            throw new NotFoundException("Club "+ id +" not found");
+    public String deleteClub(Model model, @PathVariable long id) {
+        Club club = clubHolder.getClub(id);
+        if (club == null) {
+            throw new NotFoundException("Club " + id + " not found");
         }
-        model.addAttribute("message","This club has been deleted");
+        model.addAttribute("message", "This club has been deleted");
         clubHolder.deleteClub(id);
         return "message";
     }
+
     @GetMapping("/edit") //edit a club
-    public String EditClub(Model model){
+    public String EditClub(Model model) {
         model.addAttribute("clubs", clubHolder.getclubs());
         return "ClubEdit_template";
     }
-    @GetMapping("/edit1") //edit a club-get id
-    public String putClub(Model model,@PathVariable long id,Club club){
-        clubHolder.changeClub(id,club);
-        model.addAttribute("message","This club has been edited");
+
+    @GetMapping("/edit/{id}") //edit a club-get id
+    public String putClub(Model model, @PathVariable long id) {
+        this.id = id;
+        return "EditClub.html";
+    }
+
+    @PostMapping("/editClub")
+    public String editClub(Model model, Club club) {
+        clubHolder.changeClub(this.id, club);
+        model.addAttribute("message", "This club has been created");
         return "message";
     }
 
+
+    @GetMapping("/logged/club")
+    public String logClubPage(Model model) {
+        model.addAttribute("silent", true);
+        model.addAttribute("clubs", clubHolder.getclubs());
+        return "LoggedIndexClub_template";
+    }
 
     //Blog Contoller part
     @GetMapping("/{idC}/blog/{idB}") //View one blog
     public String viewBlog(Model model, @PathVariable long idC, @PathVariable long idB) {
         //If you are the author you can edit or delete the blog
-        model.addAttribute("silent",true);
+        model.addAttribute("silent", true);
         model.addAttribute("idC", idC);
-        model.addAttribute("blog", clubHolder.getClub(idC).getBlog(idB-1));
-        model.addAttribute("club",clubHolder.getClub(idC));
+        model.addAttribute("blog", clubHolder.getClub(idC).getBlog(idB - 1));
+        model.addAttribute("club", clubHolder.getClub(idC));
         return "Blog_template";
     }
 
@@ -106,3 +123,5 @@ public class ClubController {
     }
 
 }
+
+
