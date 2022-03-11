@@ -30,12 +30,13 @@ public class User {
 
     private String biography;
 
-    public User(String nickname,String email,String password, String biography, Boolean admin){
+    public User(String nickname,String email,String password, String biography, Boolean admin,long id){
         this.nickname=nickname;
         this.email=email;
         this.password=password;
         this.biography=biography;
         this.admin=admin;
+        this.id_User=id;
     }
     @Override
     public String toString() {

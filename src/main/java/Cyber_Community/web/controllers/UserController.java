@@ -48,6 +48,7 @@ public class UserController {
         return "/logged";
     }
 
+
     //Delete an existing user
     @GetMapping("/user/delete/{id}")
     public String deleteUser(Model model, @PathVariable long id) {

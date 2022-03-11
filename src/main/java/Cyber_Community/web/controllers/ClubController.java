@@ -17,8 +17,8 @@ import javax.transaction.Transactional;
 public class ClubController {
     @Autowired
     ClubHolder clubHolder;
-    private Long idC; //Variable to save id of club
-    private Long idB; //Variable to save id of blog
+
+    public Long idC;
 
     @GetMapping("") //View all clubs
     public String club(Model model) {
@@ -36,7 +36,6 @@ public class ClubController {
         } else {
             model.addAttribute("club", clubHolder.getClub(id));
             model.addAttribute("blog", clubHolder.getClub(id).getBlogs());
-            model.addAttribute("idC", id);
         }
         return "Club_template";
     }
@@ -55,7 +54,7 @@ public class ClubController {
         return "ClubDelete_template";
     }
 
-    @GetMapping("/delete/{id}") //delete a club
+    @GetMapping(("/delete/{id}")) //delete a club-get id
     public String deleteClub(Model model, @PathVariable long id) {
         Club club = clubHolder.getClub(id);
         if (club == null) {
@@ -81,8 +80,6 @@ public class ClubController {
     /*@PostMapping("/EditClub")
 
     public String editClub(Model model, Club club) {
-    @PostMapping("/editClub") //edit a club
-    public String editClub(Model model, @RequestBody Club club) {
         clubHolder.changeClub(this.id, club);
         model.addAttribute("message", "This club has been created");
         return "message";
@@ -96,7 +93,15 @@ public class ClubController {
     }
 
 
+    @GetMapping("/logged/club")
+    public String logClubPage(Model model) {
+        model.addAttribute("silent", true);
+        model.addAttribute("clubs", clubHolder.getclubs());
+        return "LoggedIndexClub_template";
+    }
+
     //Blog Contoller part
+
     @GetMapping("/{idC}/blog/{idB}") //View one blog
     public String viewBlog(Model model, @PathVariable long idC, @PathVariable long idB) {
         //If you are the author you can edit or delete the blog
@@ -106,44 +111,31 @@ public class ClubController {
         model.addAttribute("club", clubHolder.getClub(idC));
         return "Blog_template";
     }
-
-    @GetMapping("{idC}/blog/new") //create a blog - get id of club
-    public String addBlog(@PathVariable long idC) {
-        this.idC = idC;
-        return "AddBlog.html";
-    }
-    @PostMapping( "/blog/new") //Add a new blog to the club with id
-    @ResponseStatus(HttpStatus.CREATED)
-    public String AddBlog(Model model,@RequestBody Blog blog) {
-        model.addAttribute("idC", this.idC);
-        clubHolder.getClub(this.idC).addBlog(blog);
-        return "BlogSaved_template";
-    }
-
-    @GetMapping("/{id}/blog/{idB}/delete") //delete blog - get Club id
-    public String deleteBlog(@PathVariable long id, @PathVariable long idB){
+    @GetMapping("{id}/blog/new") //edit a club-get id
+    public String addBlog(Model model, @PathVariable long id) {
         this.idC = id;
-        this.idB = idB;
-        return "DeleteBlog.html";
+        return "/addBlog";
     }
-    @DeleteMapping("/blog/delete") //Delete one blog
-    public String DeleteBlog(){
-        clubHolder.getClub(this.idC).removeBlog(this.idB-1);
+    @PostMapping( "/blog/new") //Add a new blog to the club
+    @ResponseStatus(HttpStatus.CREATED)
+    public String AddBlog(Model model, Blog blog) {
+        clubHolder.getClub(this.idC).addBlog(blog);
+        model.addAttribute("message","This blog has been created");
+        return "message";
+    }
+
+    @DeleteMapping("/{idC}/delete/blog/{idB}") //Delete one blog
+    public String DeleteBlog(Model model, @PathVariable long idC, @PathVariable long idB){
+        clubHolder.getClub(idC).removeBlog(idB-1);
         return "Club_template"; //Go back
     }
 
-    @GetMapping("/{id}/blog/{idB}/put") //update blog - get Club id
-    public String putBlog(@PathVariable long id, @PathVariable long idB){
-        this.idC = id;
-        this.idB = idB;
-        return "EditBlog.html";
-    }
-    @PutMapping("/blog/edit") //Update one blog
-    public String UpdateBlog(Model model, @RequestBody Blog upBlog){
-        clubHolder.getClub(this.idC).addBlog(this.idB, upBlog);
-        model.addAttribute("blog", clubHolder.getClub(this.idC).getBlog(idB));
-        model.addAttribute("id",this.idB);
-        return "/club/"+this.idC+"/{blog}/"+this.idB; //View blog updated
+    @PutMapping("/{idC}/{idB}") //Update one blog
+    public String UpdateBlog(Model model, Blog upBlog, @PathVariable long idC, @PathVariable long idB){
+        clubHolder.getClub(idC).addBlog(idB, upBlog);
+        model.addAttribute("blog", clubHolder.getClub(idC).getBlog(idB));
+        model.addAttribute("id",idB);
+        return "Blog_template";
     }
 
 }

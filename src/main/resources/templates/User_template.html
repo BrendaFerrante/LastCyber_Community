@@ -39,16 +39,13 @@
 <!-- Header -->
 <header class="w3-container w3-black w3-center" style="padding:128px 16px">
     <h1 class="w3-margin w3-jumbo">Your Profile</h1>
-    <img src="https://www.pngmart.com/files/3/Horizontal-Line-PNG-Photos.png" width="700" height="200" ></header>
 
 </header>
-<h1 style="text-align: center">Profile info</h1>
-    <p style="text-align: center">Nickname: {{user.nickname}}</p>
-    <p style="text-align: center">Email: {{user.email}}</p>
-    <p style="text-align: center">Biography: {{user.biography}}</p>
-    <p style="text-align: center">Id: {{user.id_User}}</p>
- <a href="/user/delete/{id_User}"><p style="text-align: center"> Delete account</p></a>
- <a href="/user/update/{id_User}"><p style="text-align: center">Edit account</p></a>
-<br>
+<h1 style="text-align: center">Profile</h1>
+    <p>Nickname: {{user.nickname}}</p>
+    <p>Email: {{user.email}}</p>
+    <p>Biography: {{user.biography}}</p>
+ <a href="/user/delete/{{user.id_User}}"> Delete account</a>
+ <a href="/user/update/{{user.id_User}}"> Edit account</a>
 </body>
 </html>

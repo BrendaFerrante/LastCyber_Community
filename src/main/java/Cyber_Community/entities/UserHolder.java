@@ -15,8 +15,8 @@ public class UserHolder {
     private AtomicLong lastId_User=new AtomicLong();
 
     public UserHolder(){ //Example Users
-        this.users.put(this.lastId_User.incrementAndGet(),new User("anonymous","b.fe@al.es","pass","Hello",false));
-        this.users.put(this.lastId_User.incrementAndGet(),new User("Brenda","hola@h.es","pass","Good Morning",true));
+        this.users.put(this.lastId_User.incrementAndGet(),new User("anonymous","b.fe@al.es","pass","Hello",false,this.lastId_User.longValue()));
+        this.users.put(this.lastId_User.incrementAndGet(),new User("Brenda","hola@h.es","pass","Good Morning",true,this.lastId_User.longValue()));
     }
 
     public void add(User user) {

@@ -16,12 +16,11 @@ public class ClubHolder {
 
     public ClubHolder(){
         User user = new User();
-        this.clubs.put(this.lastId.incrementAndGet(),new Club("Test club","Test" +
-                "\n" +
-                "This is a test and a description just to so: " +
+        this.clubs.put(this.lastId.incrementAndGet(),new Club("Test club","Test" + "\n" + "This is a test and a description just to so: " +
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.\n" +
                 "\n" +
-                "Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,","Nobody","Contact")
+                "Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,","Nobody","Contact",
+                this.lastId.longValue())
         );
     }
 
@@ -36,10 +35,11 @@ public class ClubHolder {
 
     public void changeClub(Long id,Club club){
         Club aux= this.clubs.get(id);
+        String b="Qe";
         if(aux!=null){
-            String a=aux.getName1();
+            String a=club.getName1();
             if(a!=null){
-                aux.setName("No");
+                aux.setName1("h");
             }else {
                 aux.setName("SI");
             }

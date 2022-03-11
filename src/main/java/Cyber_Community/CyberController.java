@@ -67,4 +67,10 @@ public class CyberController {
         return "EditClub.html";
     }
 
+    @GetMapping("/addBlog")
+    public String addBlog(Model model){
+        return "AddBlog.html";
+    }
+
+
 }
