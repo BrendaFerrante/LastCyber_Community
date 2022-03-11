@@ -21,13 +21,13 @@
     <div class="w3-bar w3-card w3-left-align w3-large w3-indigo">
         <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-indigo w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
         <a href="/logged/admin" class="w3-bar-item w3-button w3-padding-large w3-black"> <b><u>Home</u></b> </a>
-        <a href="/logged/admin/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Club Space</a>
+        <a href="/logged/admin/lmau" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Club Space</a>
         <a href="/logged/admin/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
         {{#logged}}
-        <a href="/profile" class="w3-bar-item w3-button w3-padding-large"> Profile</a>
+        <a href="/logged/user/{id_User}" class="w3-bar-item w3-button w3-padding-large"> Profile</a>
         {{/logged}}
         {{#admin}}
-        <a href="/allusers" class="w3-bar-item w3-button w3-padding-large"> All users</a>
+        <a href="/users" class="w3-bar-item w3-button w3-padding-large"> All users</a>
         {{/admin}}
         {{#logged}}
         <a href="/" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
@@ -40,12 +40,12 @@
     <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
         <a href="/" class="w3-bar-item w3-button w3-padding-large">Home</a>
         <a href="/logged/admin/club" class="w3-bar-item w3-button w3-padding-large">Club Space</a>
-        <a href="/logged/admin/club" class="w3-bar-item w3-button w3-padding-large">Learn more about us</a>
+        <a href="/logged/admin/lmau" class="w3-bar-item w3-button w3-padding-large">Learn more about us</a>
         {{#logged}}
-        <a href="/profile" class="w3-bar-item w3-button w3-padding-large"> Profile</a>
+        <a href="/logged/user/{id_User}" class="w3-bar-item w3-button w3-padding-large"> Profile</a>
         {{/logged}}
         {{#admin}}
-        <a href="/allusers" class="w3-bar-item w3-button w3-padding-large"> All users</a>
+        <a href="/users" class="w3-bar-item w3-button w3-padding-large"> All users</a>
         {{/admin}}
         {{#logged}}
         <a href="/" class="w3-bar-item w3-button w3-padding-large"> Log in</a>

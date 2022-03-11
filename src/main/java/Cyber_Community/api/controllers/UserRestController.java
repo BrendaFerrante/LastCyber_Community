@@ -1,6 +1,5 @@
 package Cyber_Community.api.controllers;
 
-
 import Cyber_Community.entities.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
