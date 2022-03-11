@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Date;
+import java.util.concurrent.atomic.AtomicLong;
 
 
 @Data
@@ -27,7 +27,7 @@ public class User {
     private String nickname; //Unique
     private String email;
     private String password;
-   // private Date birthday;
+
     private String biography;
 
     public User(String nickname,String email,String password, String biography, Boolean admin){
@@ -35,9 +35,7 @@ public class User {
         this.email=email;
         this.password=password;
         this.biography=biography;
-       // this.birthday = birthday;
         this.admin=admin;
-        //this.id_User=id_User;
     }
     @Override
     public String toString() {

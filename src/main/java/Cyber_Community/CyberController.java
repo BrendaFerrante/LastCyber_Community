@@ -47,7 +47,6 @@ public class CyberController {
 
     @GetMapping("/logged/admin/club")
     public String logAdminClub() {
-
         return "LoggedAdminClub_template";
     }
 

@@ -1,6 +1,7 @@
 package Cyber_Community.web.controllers;
 
 import Cyber_Community.entities.User;
+import Cyber_Community.entities.UserHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class UserController {
     @Autowired
-    Cyber_Community.entities.UserHolder UserHolder;
+    UserHolder UserHolder;
 
     @GetMapping("/users")
     public String usersList(Model model) {
@@ -19,9 +20,11 @@ public class UserController {
         return "UserList_template";
     }
 
+    //Initial page once you log in
     @GetMapping("/logged")
     public String loggedUser (){return "index2";}
 
+    //Get user info
     @GetMapping("/logged/user/{id}")
     public String getUser(Model model, @PathVariable long id) {
         User user = UserHolder.getUser(id);
@@ -29,6 +32,7 @@ public class UserController {
         return "User_template";
     }
 
+    //Create new user
     @PostMapping("/user/new")
     public String createUser(User newUser,Model model) {
         UserHolder.add(newUser);
@@ -36,9 +40,7 @@ public class UserController {
         return "message";
     }
 
-    /*@GetMapping("/logged/user/update/{id}")
-    public String updUser(){return "SignUp.html";}*/
-
+    //Modify an existing user
     @PutMapping("/user/update/{id}")
     public String updateUser(Model model, long id,  User newUser) {
         UserHolder.add(id, newUser);
@@ -46,6 +48,7 @@ public class UserController {
         return "/logged";
     }
 
+    //Delete an existing user
     @GetMapping("/user/delete/{id}")
     public String deleteUser(Model model, @PathVariable long id) {
         model.addAttribute("user", UserHolder.getUser(id));
