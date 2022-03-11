@@ -20,14 +20,36 @@
         <a href="/" class="w3-bar-item w3-button w3-padding-large w3-hover-white"> <b><u>Home</u></b> </a>
         <a href="/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large  w3-black">Club Space</a>
         <a href="/lmau" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
-        <a href="/login" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
+        {{#notlogged}}
+        <a href="/logged/user/{id_User}" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
+        {{/notlogged}}
+        {{#logged}}
+        <a href="/logged/user/{id_User}" class="w3-bar-item w3-button w3-padding-large"> Profile</a>
+        {{/logged}}
+        {{#admin}}
+        <a href="/users" class="w3-bar-item w3-button w3-padding-large"> All users</a>
+        {{/admin}}
+        {{#logged}}
+        <a href="/" class="w3-bar-item w3-button w3-padding-large"> Log out</a>
+        {{/logged}}
     </div>
     <!-- Navbar on small screens -->
     <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
         <a href="/" class="w3-bar-item w3-button w3-padding-large">Home</a>
         <a href="/club" class="w3-bar-item w3-button w3-padding-large">Club Space</a>
         <a href="/lmau" class="w3-bar-item w3-button w3-padding-large">Learn more about us</a>
-        <a href="/login" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
+        {{#logged}}
+        <a href="/logged/user/{id_User}" class="w3-bar-item w3-button w3-padding-large"> Profile</a>
+        {{/logged}}
+        {{#admin}}
+        <a href="/users" class="w3-bar-item w3-button w3-padding-large"> All users</a>
+        {{/admin}}
+        {{#notlogged}}
+        <a href="/" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
+        {{/notlogged}}
+        {{#logged}}
+        <a href="/" class="w3-bar-item w3-button w3-padding-large"> Log out</a>
+        {{/logged}}
     </div>
 </div>
 
@@ -58,7 +80,7 @@
 
         <div style="alignment: center">
             <div class="w3-padding-medium w3-margin-bottom">
-                <a href="AddClub.html"><button class="w3-button w3-light-grey">Creat new club</button></a>
+                <a href="/AddClub.html"><button class="w3-button w3-light-grey">Creat new club</button></a>
                 Choose the name, the description, you, who is going to manage a club be prepare for the power
             </div>
 

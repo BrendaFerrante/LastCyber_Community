@@ -23,8 +23,9 @@ public class ClubController {
 
     @GetMapping("") //View all clubs
     public String club(Model model) {
+        model.addAttribute("notlogged",true);
         model.addAttribute("logged", false);
-        model.addAttribute("admin", true);
+        model.addAttribute("admin", false);
         model.addAttribute("clubs", clubHolder.getclubs());
         return "IndexClub_template";
     }

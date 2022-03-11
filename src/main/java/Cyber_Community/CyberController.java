@@ -21,7 +21,10 @@ public class CyberController {
     ClubHolder clubHolder;
 
     @GetMapping("/")
-    public String root() {
+    public String root(Model model) {
+        model.addAttribute("notlogged",true);
+        model.addAttribute("logged",false);
+        model.addAttribute("admin",false);
         return "index";
     }
 
@@ -36,18 +39,27 @@ public class CyberController {
 
     @GetMapping("/logged/club")
     public String logClubPage (Model model){
-        model.addAttribute("silent",true);
-        model.addAttribute("admin",true);
+        model.addAttribute("logged",true);
+        model.addAttribute("not logged",false);
+        model.addAttribute("admin",false);
         model.addAttribute("clubs", clubHolder.getclubs());
-        return "LoggedIndexClub_template";
+        return "IndexClub_template";
     }
 
     @GetMapping("/logged/admin")
-    public String loggedAdmin() {return "indexAdmin";}
+    public String loggedAdmin(Model model) {
+        model.addAttribute("logged",true);
+        model.addAttribute("not logged",false);
+        model.addAttribute("admin",true);
+        return "indexAdmin";
+    }
 
     @GetMapping("/logged/admin/club")
-    public String logAdminClub() {
-        return "LoggedAdminClub_template";
+    public String logAdminClub(Model model) {
+        model.addAttribute("logged",true);
+        model.addAttribute("not logged",false);
+        model.addAttribute("admin",true);
+        return "IndexClub_template";
     }
 
 
