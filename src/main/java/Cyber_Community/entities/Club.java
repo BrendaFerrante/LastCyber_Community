@@ -100,5 +100,13 @@ public class Club {
        // blog1.setAuthor(blog.getAuthor());
 
     }
+    public void changeBlog1(long idC,Blog blog){
+        Blog blog1=this.blogs.get((int)idC);
+        blog1.setAuthor(blog.getAuthor());
+        blog1.setContent(blog.getContent());
+        blog1.setTitle(blog.getTitle());
+        blog1.setResume(blog.getResume());
+
+    }
 
 }

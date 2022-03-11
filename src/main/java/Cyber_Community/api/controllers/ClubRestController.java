@@ -13,9 +13,6 @@ import java.util.Collection;
 public class ClubRestController {
     @Autowired
     ClubHolder clubHolder;
-    private long id; //Variable to save id of club
-    private long idB; //Variable to save id of blog
-
     @GetMapping("/club")
     public ResponseEntity<Collection<Club>> getClub(){
         Collection<Club> clubs=clubHolder.getclubs();
@@ -55,7 +52,7 @@ public class ClubRestController {
     public ResponseEntity<Club> putClub(@PathVariable long id,@RequestBody Club Club){
         Club aux=clubHolder.getClub(id);
         if(Club!=null) {
-            clubHolder.changeClub(id,Club);
+            clubHolder.changeClub1(id,Club);
             return new ResponseEntity<>(HttpStatus.OK);
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -74,27 +71,27 @@ public class ClubRestController {
         }
     }
 
-    @PostMapping("/club/blog/new") //Add a new blog to the club
+    @PostMapping("/club/{id}/blog/new") //Add a new blog to the club
     @ResponseStatus(HttpStatus.CREATED)
-    public Blog AddBlog(@RequestBody Blog blog){
-        clubHolder.getClub(this.id).addBlog(blog);
+    public Blog AddBlog(@PathVariable long id,@RequestBody Blog blog){
+        clubHolder.getClub(id).addBlog(blog);
         return blog;
     }
 
-    @DeleteMapping("/club/blog/delete") //Delete one blog
-    public ResponseEntity<Blog> deleteBlog(){
-        Blog blog = clubHolder.getClub(this.id).removeBlog(this.idB);
+    @DeleteMapping("/club/{idC}/blog/{idB}") //Delete one blog
+    public ResponseEntity<Blog> deleteBlog(@PathVariable long idC,@PathVariable long idB){
+        Blog blog = clubHolder.getClub(idC).removeBlog(idB);
         if(blog != null){
             return new ResponseEntity<>(blog, HttpStatus.OK);
         }else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-    @PutMapping("/club/blog/put") //Update one blog
-    public ResponseEntity<Blog> updateBlog(@RequestBody Blog upBlog){
-        Blog blog = clubHolder.getClub(this.id).getBlog(this.idB);
+    @PutMapping("/club/{idC}/blog/{idB}") //Update one blog
+    public ResponseEntity<Blog> updateBlog(@PathVariable long idC,@PathVariable long idB,@RequestBody Blog upBlog){
+        Blog blog = clubHolder.getClub(idC).getBlog(idB);
         if (blog != null){
-            clubHolder.getClub(this.id).addBlog(this.idB,blog);
+            clubHolder.getClub(idC).changeBlog1(idB,upBlog);
             return new ResponseEntity<>(upBlog, HttpStatus.OK);
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

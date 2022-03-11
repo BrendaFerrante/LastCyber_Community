@@ -49,6 +49,17 @@ public class ClubHolder {
 
     }
 
+    public void changeClub1(Long id,Club club){
+        Club aux= this.clubs.get(id);
+        aux.setName(club.getName());
+        aux.setAdmin(club.getAdmin());
+        aux.setBlogs(club.getBlogs());
+        aux.setContact(club.getContact());
+        aux.setDescription(club.getDescription());
+        aux.setMembers(club.getMembers());
+
+    }
+
     public Collection<Club> getclubs(){
         return this.clubs.values();
     }
