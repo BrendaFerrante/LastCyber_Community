@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Data
 @AllArgsConstructor
@@ -17,7 +18,7 @@ import java.util.List;
 public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id_Blog;
+    private AtomicLong id_Blog=new AtomicLong();
 
     private String title;
     private String content;
@@ -37,18 +38,11 @@ public class Blog {
         this.date = new Date();
     }
 
-    public void setId(long id){
-        this.id_Blog = id;
-    }
-
-    public long getId() {
-        return id_Blog;
-    }
-
     @Override
     public String toString() {
         return "Blog {" + "title='" + title + '\'' + ", content='" + content + '\'' + ", resume='" + resume + '\'' +
                 ", author='" + author + '\'' +", date=" + date + '}';
     }
+
 
 }
