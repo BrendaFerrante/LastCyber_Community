@@ -61,7 +61,6 @@ public class CyberController {
         return "signUp.html";
     }
 
-
     @GetMapping("/edit")
     public String putClub(Model model){
         return "EditClub.html";
@@ -76,5 +75,8 @@ public class CyberController {
         return "EditBlog.html";
     }
 
+
+    @GetMapping("/upUser")
+    public String upUser(){return "EditUser.html";}
 
 }

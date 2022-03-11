@@ -47,12 +47,6 @@ public class ClubHolder {
             aux.setName("NO");
         }
 
-       /* if(a!="h8"){
-            aux.setName1(a);
-        }else {
-            aux.setName("NO");
-        }*/
-
     }
 
     public Collection<Club> getclubs(){
