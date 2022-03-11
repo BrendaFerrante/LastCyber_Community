@@ -72,4 +72,5 @@ public class ClubHolder {
         this.clubs.get(id).addBlog(blog);
     }
 
+
 }

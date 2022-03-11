@@ -43,7 +43,7 @@
 <header class="w3-container w3-black w3-center" style="padding:10% 0px">
     <h1 class="w3-margin w3-jumbo w3-w3-light-grey">Edit a club</h1>
 </header>
-<div class="header"></div>
+<div style="text-align: center">
 <form action="/club/EditClub" method="post">
     <p>Name of the club: </p>
     <input type='text' name='name'  placeholder="Enter the name here"/>
@@ -53,9 +53,14 @@
     <input type='text' name='contact'   placeholder="Enter the contact here"/>
     <p>Brief description of the club</p>
     <textarea name='description' rows=5 cols=40 placeholder="Enter the description here"></textarea>
+    <br>
     <input type="submit" value="submit"/>
 </form>
+
 <a href=javascript:history.back()><button type="button" class="cancelbtn">Cancel</button></a>
+
+</div>
+
 </body>
 </html>
 
