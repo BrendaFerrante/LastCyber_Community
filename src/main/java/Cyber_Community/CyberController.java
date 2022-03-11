@@ -1,7 +1,7 @@
 package Cyber_Community;
 
 /*
- *  Handle the mian page
+ *  Handle the main page
  */
 
 
@@ -31,9 +31,12 @@ public class CyberController {
     @GetMapping("/logged/admin/lmau")
     public String lmauLogAd(){return "LmauLogAd_template";}
 
+    //Once the person is logged in the website
+
     @GetMapping("/logged/club")
     public String logClubPage (Model model){
         model.addAttribute("silent",true);
+        model.addAttribute("admin",true);
         model.addAttribute("clubs", clubHolder.getclubs());
         return "LoggedIndexClub_template";
     }
@@ -42,7 +45,10 @@ public class CyberController {
     public String loggedAdmin() {return "indexAdmin";}
 
     @GetMapping("/logged/admin/club")
-    public String logAdminClub() {return "LoggedAdminClub_template";}
+    public String logAdminClub() {
+
+        return "LoggedAdminClub_template";
+    }
 
 
     @GetMapping("/login")

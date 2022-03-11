@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    <title>Club Space</title>
     <meta charset="UTF-8">
-    <title>Clubs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-        .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-        .fa-anchor,.fa-coffee {font-size:200px}
     </style>
 </head>
-<body>
+<body class="w3-black w3-content" style="max-width:100%">
+
 <!-- Navbar -->
 <div class="w3-top">
     <div class="w3-bar w3-card w3-left-align w3-large w3-indigo">
@@ -34,37 +33,55 @@
     </div>
 </div>
 
-<!-- Header -->
-<header class="w3-container w3-black w3-center" style="padding:10% 0px">
-    <h1 class="w3-margin w3-jumbo w3-w3-light-grey">Club Space</h1>
-    <p class="w3-xlarge">Welcome to the club area</p>
-</header>
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="alignment: center">
+
+    <!-- Header -->
+    <header class="w3-container w3-black w3-center" style="padding:10% 0px">
+        <h1 class="w3-margin w3-jumbo ">Club Space</h1>
+        <p class="w3-xlarge"><u>Welcome to the club area</u></p>
+    </header>
+
+    <h1 style="text-align: center"> Clubs</h1>
+    <ul style="text-align: center">
+        {{#clubs}}
+        <button class="w3-button w3-light-grey "><a href="/club/{{-index}}">{{name}}</a></button>
+        <br>
+        <br>
+        {{/clubs}}
+    </ul>
 
 
-<h1 style="text-align: center">Clubs</h1>
-<ul style="text-align: center">
-    {{#clubs}}
-    <a href="club/{{-index}}"> {{name}}</a>
-    <br>
-    {{/clubs}}
-</ul>
+    <!-- Management Club -->
+    {{#admin}}
+    <div class="w3-container w3-padding-large w3-center" style="margin-bottom:32px">
+        <h4><b><u>Management Club</u></b></h4>
+        <p>What a great responsability to bear, create a new club, destroy it or modify it... So please be sensible dear user</p>
 
-<h1 style="text-align: center"> Join the club </h1>
-<div style="text-align:center; padding-bottom: 50px">
-    <a href="PetitionClub.html" ><button class="w3-button w3-black ">I want to be in this club</button> </a>
+        <div style="alignment: center">
+            <div class="w3-padding-medium w3-margin-bottom">
+                <a href="AddClub.html"><button class="w3-button w3-light-grey">Creat new club</button></a>
+                Choose the name, the description, you, who is going to manage a club be prepare for the power
+            </div>
 
+            <div class="w3-padding-medium w3-margin-bottom">
+                <a href="club/delete"><button class="w3-button w3-light-grey">Delete a club</button></a> Destroying the life you created, what happend to you, my old friend... You have changed in this time...
+            </div>
+
+            <div class="w3-padding-medium w3-margin-bottom">
+                <a href="EditClub.html"><button class="w3-button w3-light-grey">Edit a club</button></a> Changes, everyone are afraid of them, but do not fear admin, you are a wise person, aren't you?
+            </div>
+
+        </div>
+    </div>
+    {{/admin}}
+
+    <div class="w3-black w3-center w3-padding-24">Powered by
+        <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a>
+    </div>
+
+    <!-- End page content -->
 </div>
-
-
-{{#silent}}
-<h1 style="text-align: center"> Club management</h1>
-<div style="text-align:center; padding-bottom: 50px">
-    <a href="AddClub.html"><button class="w3-button w3-black ">Creat new club</button></a>
-    <a href="DeleteClub.html"><button class="w3-button w3-black">Delete a club</button></a>
-    <a href="EditClub.html"><button class="w3-button w3-black">Modify a club</button></a>
-</div>
-{{/silent}}
-
 
 <script>
     // Used to toggle the menu on small screens when clicking on the menu button
@@ -77,6 +94,9 @@
         }
     }
 </script>
+
 </body>
+
 </html>
 
+<!-- Para buscar un club-->
