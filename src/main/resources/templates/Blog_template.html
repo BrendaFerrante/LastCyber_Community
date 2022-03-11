@@ -58,8 +58,8 @@
     <br>
     <!--If you are the author you can edit or delete the blog-->
     {{#silent}}
-    <button class="w3-button w3-black " onclick="location.href='/DeleteBlog.html'">Delete Blog </button>
-    <button class="w3-button w3-black " onclick="location.href='/EditBlog.html'">Edit Blog </button>
+        <a href="{{idB}}/delete"> <button class="w3-button w3-black "> Delete Blog </button></a>
+        <a href="{{idB}}/put"> <button class="w3-button w3-black "> Edit Blog </button> </a>
     <br>
     {{/silent}}
 
