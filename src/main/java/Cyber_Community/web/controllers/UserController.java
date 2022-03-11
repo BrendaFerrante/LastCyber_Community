@@ -14,6 +14,8 @@ public class UserController {
     @Autowired
     UserHolder UserHolder;
 
+    private Long idU;
+
     @GetMapping("/users")
     public String usersList(Model model) {
         model.addAttribute("users", UserHolder.getUsers());
@@ -40,12 +42,18 @@ public class UserController {
         return "message";
     }
 
+    @GetMapping("/user/update/{id}") //edit a user-get id
+    public String updUser( @PathVariable long id) {
+        this.idU = id;
+        return "/upUser";
+    }
     //Modify an existing user
-    @PutMapping("/user/update/{id}")
-    public String updateUser(Model model, long id,  User newUser) {
-        UserHolder.add(id, newUser);
-        model.addAttribute("user",UserHolder.getUser(id));
-        return "/logged";
+    @PostMapping("user/update/user/updateUs")
+    public String updateUser(Model model, User newUser) {
+        UserHolder.add(this.idU, newUser);
+        model.addAttribute("message", "The user has been edited");
+        return "UserSaved";
+
     }
 
 
