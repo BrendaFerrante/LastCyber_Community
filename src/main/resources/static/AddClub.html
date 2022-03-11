@@ -50,14 +50,16 @@
     <p>Admin user of the club</p>
     <input type='text' name='admin'   placeholder="Enter the name of admin here"/>
     <p>How to contact the admin</p>
-    <input type='text' name='contact'   placeholder="Enter the contact here"/>
-    <p>Brief description of the club</p>
-    <textarea name='description' rows=5 cols=40 placeholder="Enter the description here"></textarea>
-    <input type="submit" value="submit"/><br>
+    <input type='text' name='contact'   placeholder="Enter the contact here"/><br>
+    <label for='description'><b>Brief description of the club</b></label>
+    <textarea name='description'  id="description" rows=5 cols=40 placeholder="Enter the description here"></textarea>
     <script src="ckeditor/ckeditor.js"></script>
     <script>
         CKEDITOR.replace('description');
     </script>
+    <input type="submit" value="submit"/><br>
+
+
 </form>
 <a href=javascript:history.back()><button type="button" class="cancelbtn">Cancel</button></a>
 </body>

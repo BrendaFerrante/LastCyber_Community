@@ -16,6 +16,8 @@ public class ClubController {
     @Autowired
     ClubHolder clubHolder;
 
+    private long id;
+
     @GetMapping("")
     public String club(Model model) {
         model.addAttribute("logged",false);
@@ -63,12 +65,19 @@ public class ClubController {
         model.addAttribute("clubs", clubHolder.getclubs());
         return "ClubEdit_template";
     }
-    @GetMapping("/edit1")
-    public String putClub(Model model,@PathVariable long id,Club club){
-        clubHolder.changeClub(id,club);
-        model.addAttribute("message","This club has been edited");
+    @GetMapping("/edit/{id}")
+    public String putClub(Model model,@PathVariable long id){
+        this.id=id;
+        return "EditClub.html";
+    }
+
+    @PostMapping("/editClub")
+    public String editClub(Model model, Club club){
+        clubHolder.changeClub(this.id,club);
+        model.addAttribute("message","This club has been created");
         return "message";
     }
+
     @GetMapping("/logged/club")
     public String logClubPage (Model model){
         model.addAttribute("silent",true);
