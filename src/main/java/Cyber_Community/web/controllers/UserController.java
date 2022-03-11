@@ -58,7 +58,7 @@ public class UserController {
     public String updateUser(Model model, User newUser) {
         UserHolder.add(this.idU, newUser);
         model.addAttribute("message", "The user has been edited");
-        return "UserSaved";
+        return "message";
 
     }
 
