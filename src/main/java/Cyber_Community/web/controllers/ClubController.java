@@ -18,7 +18,8 @@ public class ClubController {
     @Autowired
     ClubHolder clubHolder;
 
-    public Long idC;
+    private Long idC;
+    private Long idB;
 
     @GetMapping("") //View all clubs
     public String club(Model model) {
@@ -124,18 +125,30 @@ public class ClubController {
         return "message";
     }
 
-    @DeleteMapping("/{idC}/delete/blog/{idB}") //Delete one blog
+
+    @GetMapping("/{idC}/blog/{idB}/delete") //Delete one blog
     public String DeleteBlog(Model model, @PathVariable long idC, @PathVariable long idB){
         clubHolder.getClub(idC).removeBlog(idB-1);
-        return "Club_template"; //Go back
+        model.addAttribute("message","This blog has been deleted");
+        return "message";
+
+
+    }
+    @GetMapping("/{idC}/blog/{idB}/edit") //Delete one blog
+    public String EditBlog(Model model, @PathVariable long idC, @PathVariable long idB){
+        this.idC=idC;
+        this.idB=idB;
+        return "/editBlog";
+
+
     }
 
-    @PutMapping("/{idC}/{idB}") //Update one blog
-    public String UpdateBlog(Model model, Blog upBlog, @PathVariable long idC, @PathVariable long idB){
-        clubHolder.getClub(idC).addBlog(idB, upBlog);
-        model.addAttribute("blog", clubHolder.getClub(idC).getBlog(idB));
-        model.addAttribute("id",idB);
-        return "Blog_template";
+    @PostMapping("/blog/edit") //Update one blog
+    public String UpdateBlog(Model model, Blog upBlog){
+        Club club=clubHolder.getClub(this.idC);
+        clubHolder.getClub(this.idC).changeBlog(this.idB,upBlog);
+        model.addAttribute("message","This blog has been edited");
+        return "message";
     }
 
 }

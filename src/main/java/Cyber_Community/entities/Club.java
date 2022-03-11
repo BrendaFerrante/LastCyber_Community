@@ -95,5 +95,10 @@ public class Club {
     public Blog removeBlog(long idB) {
         return this.blogs.remove((int)idB);
     }
+    public void changeBlog(long idC,Blog blog){
+        //Blog blog1=this.blogs.get((int)idC);
+       // blog1.setAuthor(blog.getAuthor());
+
+    }
 
 }
