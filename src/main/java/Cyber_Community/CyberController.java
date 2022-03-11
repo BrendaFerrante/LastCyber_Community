@@ -59,6 +59,7 @@ public class CyberController {
         model.addAttribute("logged",true);
         model.addAttribute("not logged",false);
         model.addAttribute("admin",true);
+        model.addAttribute("clubs", clubHolder.getclubs());
         return "IndexClub_template";
     }
 

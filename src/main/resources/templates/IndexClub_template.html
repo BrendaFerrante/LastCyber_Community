@@ -21,7 +21,7 @@
         <a href="/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large  w3-black">Club Space</a>
         <a href="/lmau" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
         {{#notlogged}}
-        <a href="/logged/user/{id_User}" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
+        <a href="/login" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
         {{/notlogged}}
         {{#logged}}
         <a href="/logged/user/{id_User}" class="w3-bar-item w3-button w3-padding-large"> Profile</a>
@@ -45,7 +45,7 @@
         <a href="/users" class="w3-bar-item w3-button w3-padding-large"> All users</a>
         {{/admin}}
         {{#notlogged}}
-        <a href="/" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
+        <a href="/login" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
         {{/notlogged}}
         {{#logged}}
         <a href="/" class="w3-bar-item w3-button w3-padding-large"> Log out</a>
