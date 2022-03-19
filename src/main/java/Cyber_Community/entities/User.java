@@ -19,7 +19,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
-    private long id_User= -1;
+    private long id_User;
 
 
     private boolean admin;
@@ -50,5 +50,6 @@ public class User {
     public String getNickname (){
         return this.nickname;
     }
+
 
 }

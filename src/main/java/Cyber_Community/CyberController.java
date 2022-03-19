@@ -13,11 +13,19 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @Transactional
 public class CyberController {
 
+    @GetMapping("/error")
+    public String error(Model model){
+        model.addAttribute("notlogged",true);
+        model.addAttribute("logged",false);
+        model.addAttribute("admin",false);
+       return "index";
+    }
     @GetMapping("/")
     public String root(Model model) {
         model.addAttribute("notlogged",true);

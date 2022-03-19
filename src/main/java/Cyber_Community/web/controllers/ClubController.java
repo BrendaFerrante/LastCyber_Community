@@ -18,6 +18,7 @@ public class ClubController {
     @Autowired
     ClubHolder clubHolder;
 
+
     private Long idC;
     private Long idB;
 
@@ -74,15 +75,18 @@ public class ClubController {
     }
 
     @GetMapping("/edit/{id}") //Edit a club - get id
-    public String putClub(Model model, @PathVariable long id) {
+    public String putClub(@PathVariable long id) {
         this.idC = id;
         return "/edit";
     }
 
     @PostMapping("/EditClub") //Update club
-    @ResponseStatus(HttpStatus.CREATED)
-    public String EditClub(Model model, Club club) {
-        clubHolder.changeClub(this.idC,club);
+    //@ResponseStatus(HttpStatus.CREATED)
+    public String EdiClub(Model model, Club club) {
+        clubHolder.getClub(this.idC).setName(club.getName());
+
+        //clubHolder.getClub(this.idC).setDescription(club.getDescription());
+        //clubHolder.changeClub(this.idC,club);
         model.addAttribute("message", "This club has been edited");
         return "message";
     }
@@ -144,5 +148,3 @@ public class ClubController {
     }
 
 }
-
-

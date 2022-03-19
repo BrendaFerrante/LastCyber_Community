@@ -24,9 +24,9 @@ public class ClubHolder {
         );
     }
 
-    public void addClub(Club Club){
-        Club.setId(lastId.incrementAndGet());
-        this.clubs.put(lastId.longValue(),Club);
+    public void addClub(Club club){
+        club.setId(lastId.incrementAndGet());
+        this.clubs.put(lastId.longValue(),club);
     }
 
     public void deleteClub(Long id){
@@ -34,18 +34,12 @@ public class ClubHolder {
     }
 
     public void changeClub(Long id,Club club){
-        Club aux= this.clubs.get(id);
-        String b="Qe";
-        if(aux!=null){
-            String a=club.getName1();
-            if(a!=null){
-                aux.setName1("h");
-            }else {
-                aux.setName("SI");
-            }
-        }else {
-            aux.setName("NO");
-        }
+        //String a="aa";
+        this.clubs.get(id).setName("A");
+        //Club aux= this.clubs.get(id+1);
+        /*if(club!=null){
+            aux.setName("A");
+        }*/
 
     }
 
@@ -57,7 +51,6 @@ public class ClubHolder {
         aux.setContact(club.getContact());
         aux.setDescription(club.getDescription());
         aux.setMembers(club.getMembers());
-
     }
 
     public Collection<Club> getclubs(){
@@ -66,6 +59,7 @@ public class ClubHolder {
 
     public Club getClub(Long id){
         return this.clubs.get(id);
+        //return repository.findByID(id).orElseThrow()-> new Exception("Club not exit"));
     }
 
     public void addBlog(Blog blog,Long id){

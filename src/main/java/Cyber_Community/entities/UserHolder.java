@@ -20,13 +20,15 @@ public class UserHolder {
     }
 
     public void add(User user) {
-        long id = lastId_User.incrementAndGet();
+        user.setId_User(this.lastId_User.incrementAndGet());
+        this.users.put(this.lastId_User.longValue(),user);
+       /* long id = lastId_User.incrementAndGet();
         user.setId(id);
-        this.users.put(user.getId_User(), user);
+        this.users.put(user.getId_User(), user);*/
     }
-    public void add(long id, User user) {
+    /*public void add(long id, User user) {
         this.users.put(id, user);
-    }
+    }*/
 
     public Collection<User> getUsers(){
         return this.users.values();
@@ -55,6 +57,16 @@ public class UserHolder {
         }
         return false;
     }
+
+
+    public void changeUser(Long id,User user){
+        User oldUer=this.users.get(id);
+        oldUer.setPassword(user.getPassword());
+        oldUer.setBiography(user.getBiography());
+        oldUer.setEmail(user.getEmail());
+        oldUer.setNickname(user.getNickname());
+    }
+
 
 
 }

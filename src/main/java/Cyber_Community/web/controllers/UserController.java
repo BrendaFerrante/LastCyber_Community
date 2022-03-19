@@ -15,6 +15,7 @@ public class UserController {
     @Autowired
     UserHolder UserHolder;
 
+
     private Long idU;
 
     @GetMapping("/users")
@@ -54,7 +55,7 @@ public class UserController {
     //Modify an existing user
     @PostMapping("user/update/user/updateUs")
     public String updateUser(Model model, User newUser) {
-        UserHolder.add(this.idU, newUser);
+        UserHolder.add(newUser);
         model.addAttribute("message", "The user has been edited");
         return "message";
 
