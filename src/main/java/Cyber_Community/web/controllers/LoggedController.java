@@ -7,9 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/**
- * Created by Enzo Cotter on 11/03/2022.
- */
+
 @Controller
 @RequestMapping("/logged")
 public class LoggedController {

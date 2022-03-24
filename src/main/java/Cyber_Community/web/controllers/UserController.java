@@ -25,7 +25,6 @@ public class UserController {
     }
 
 
-
     //Get user info, for now we have to write the id, it will be able to make it on its own when we start working with databases.
     @GetMapping("/logged/user/{id}")
     public String getUser(Model model, @PathVariable long id) {
