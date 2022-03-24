@@ -1,4 +1,4 @@
-package Cyber_Community.web;
+package Cyber_Community.web.controllers;
 
 import Cyber_Community.entities.ClubHolder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,11 @@ public class LoggedController {
     ClubHolder clubHolder;
     //Initial page once you log in
     @GetMapping("")
-    public String loggedUser (){return "index2";}
+    public String loggedUser (Model model){
+        model.addAttribute("notAdmin",true);
+        model.addAttribute("admin",false);
+        return "loggedIndex";
+    }
 
     //Once the person is logged in the website
     @GetMapping("/lmau")
@@ -36,10 +40,9 @@ public class LoggedController {
 
     @GetMapping("/admin")
     public String loggedAdmin(Model model) {
-        model.addAttribute("logged",true);
-        model.addAttribute("not logged",false);
+        model.addAttribute("notAdmin",false);
         model.addAttribute("admin",true);
-        return "indexAdmin";
+        return "loggedIndex";
     }
 
     @GetMapping("/admin/club")

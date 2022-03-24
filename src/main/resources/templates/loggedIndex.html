@@ -20,21 +20,29 @@
 <div class="w3-top">
     <div class="w3-bar w3-card w3-left-align w3-large w3-indigo">
         <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-indigo w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-        <a href="/logged/admin" class="w3-bar-item w3-button w3-padding-large w3-black"> <b><u>Home</u></b> </a>
+        {{#admin}}
+        <a href="/logged/admin" class="w3-bar-item w3-button w3-padding-large"> Home</a>
+        {{/admin}}
+        {{#notAdmin}}
+        <a href="/logged" class="w3-bar-item w3-button w3-padding-large w3-black"> <b><u>Home</u></b> </a>
+        {{/notAdmin}}
+        {{#admin}}
         <a href="/logged/admin/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Club Space</a>
+        {{/admin}}
+        {{#notAdmin}}
+        <a href="/logged/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Club Space</a>
+        {{/notAdmin}}
+        {{#admin}}
         <a href="/logged/admin/lmau" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
-        {{#notlogged}}
-        <a href="/logged/user/{id_User}" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
-        {{/notlogged}}
-        {{#logged}}
+        {{/admin}}
+        {{#notAdmin}}
+        <a href="/logged/lmau" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
+        {{/notAdmin}}
         <a href="/logged/user/1" class="w3-bar-item w3-button w3-padding-large"> Profile</a>
-        {{/logged}}
         {{#admin}}
         <a href="/users" class="w3-bar-item w3-button w3-padding-large"> All users</a>
         {{/admin}}
-        {{#logged}}
         <a href="/" class="w3-bar-item w3-button w3-padding-large"> Log out</a>
-        {{/logged}}
     </div>
     <!-- Navbar on small screens -->
     <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
@@ -77,5 +85,19 @@
         }
     }
 </script>
+</script>
+<!-- Random image generation-->
+<a href="interaction.html" target="popup" onClick="window.open(this.href, this.target, 'width=300,height=400'); return false;">
+    <p>See  <span></span> </p>
+    <script>
+        var span = document.getElementsByTagName('span')[0];
+        span.textContent = 'random images'; // change DOM text content
+        span.style.display = 'inline';  // change CSSOM property
+        // create a new element, style it, and append it to the DOM
+        var loadTime = document.createElement('div');
+        loadTime.textContent = 'You loaded this page on: ' + new Date();
+        loadTime.style.color = 'blue';
+        document.body.appendChild(loadTime);
+    </script>
 </body>
 </html>

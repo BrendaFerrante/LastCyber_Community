@@ -42,6 +42,7 @@ public class UserController {
             throw new NickNameExistedException();
         }else {
             UserHolder.add(newUser);
+            model.addAttribute("logged",true);
             model.addAttribute("message","This user has been created");
             return "message";
         }
