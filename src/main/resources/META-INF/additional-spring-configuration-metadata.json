@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "sever.error.whitelable.enabled",
+      "type": "java.lang.String",
+      "description": "Description for sever.error.whitelable.enabled."
+  }
+] }

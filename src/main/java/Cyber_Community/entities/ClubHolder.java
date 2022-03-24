@@ -35,7 +35,7 @@ public class ClubHolder {
 
     public void changeClub(Long id,Club club){
         //String a="aa";
-        this.clubs.get(id).setName("A");
+        this.clubs.get(id).setName(club.getName());
         //Club aux= this.clubs.get(id+1);
         /*if(club!=null){
             aux.setName("A");

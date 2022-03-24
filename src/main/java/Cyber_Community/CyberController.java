@@ -24,7 +24,7 @@ public class CyberController {
         model.addAttribute("notlogged",true);
         model.addAttribute("logged",false);
         model.addAttribute("admin",false);
-       return "index";
+       return "error/error";
     }
     @GetMapping("/")
     public String root(Model model) {

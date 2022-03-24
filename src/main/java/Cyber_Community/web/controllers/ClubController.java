@@ -40,7 +40,8 @@ public class ClubController {
             model.addAttribute("club", clubHolder.getClub(id));
             model.addAttribute("blog", clubHolder.getClub(id).getBlogs());
         }
-        return "Club_template";
+        //return "Club_template";
+        return "EditPrueba";
     }
 
     @PostMapping("/new") //Create a club
@@ -83,10 +84,10 @@ public class ClubController {
     @PostMapping("/EditClub") //Update club
     //@ResponseStatus(HttpStatus.CREATED)
     public String EdiClub(Model model, Club club) {
-        clubHolder.getClub(this.idC).setName(club.getName());
+        //clubHolder.getClub(this.idC).setName(club.getName());
 
         //clubHolder.getClub(this.idC).setDescription(club.getDescription());
-        //clubHolder.changeClub(this.idC,club);
+        clubHolder.changeClub(this.idC,club);
         model.addAttribute("message", "This club has been edited");
         return "message";
     }
