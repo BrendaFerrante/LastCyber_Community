@@ -138,7 +138,7 @@ public class ClubController {
     @GetMapping("/{idC}/blog/{idB}/edit") //Edit one blog - get Ids
     public String EditBlog(Model model, @PathVariable long idC, @PathVariable int idB){
         this.idC=idC;
-        this.idB=idB;
+        this.idB=idB-1;
         return "/editBlog";
     }
 

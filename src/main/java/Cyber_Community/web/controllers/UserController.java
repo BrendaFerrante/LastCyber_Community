@@ -55,7 +55,11 @@ public class UserController {
     //Modify an existing user
     @PostMapping("user/update/user/updateUs")
     public String updateUser(Model model, User newUser) {
-        UserHolder.add(newUser);
+        User user=UserHolder.getUser(this.idU);
+        user.setNickname(newUser.getNickname());
+        user.setEmail(newUser.getEmail());
+        user.setBiography(newUser.getBiography());
+        //UserHolder.add(newUser);
         model.addAttribute("message", "The user has been edited");
         return "message";
 
