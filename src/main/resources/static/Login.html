@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login</title>
   <link rel="stylesheet" href="css/login.css">
 </head>
+
 <body>
-<div style="text-align: center">
-<h2>Login Form</h2>
 
-<form action="/logged" >
+<form action="/logged" class="container">
+  <div class="log">Login</div>
   <div class="imgcontainer">
-    <img src="https://i.blogs.es/9392a0/whatsapp-anonimo/1366_521.jpg" width="1" height="200" alt="Avatar" class="avatar">
+    <img src="https://obs.line-scdn.net/0hj6PgUD5MNRltHh2oMq9KTldINnZeciYaCShkBz1way0Ue3VLUix9d04fby0SJ3JHBHt6eU8ZLigSLnFJWS19/w644" alt="Avatar" class="avatar">
   </div>
 
-  <div class="container">
-    <label for="nickname"><b>Username</b></label>
-    <input type="text" id="nickname" placeholder="Enter Nickname" name="nickname" required>
+  <p>
+  <label for="nickname"><b>Username</b></label>
+  <input type="text" id="nickname" placeholder="   Enter Nickname" name="nickname" required>
+    <br>
+  <label for="password"><b>Password</b></label>
+  <input type="password" id="password" placeholder="   Enter Password" name="password" required>
+    <br>
+  <button href="/logged" type="submit">Login</button>
+  </p>
 
-    <label for="password"><b>Password</b></label>
-    <input type="password" id="password" placeholder="Enter Password" name="password" required>
+  <a href="javascript:history.back()">
+      <button type="button" class="cancelbtn">Cancel</button>
+  </a>
+  <span class="padding">New here? <a href="signUp.html">Create account</a></span>
 
-    <button href="/logged" type="submit">Login</button>
-  </div>
 
-  <div class="container" style="background-color:#f1f1f1">
-    <a href="javascript:history.back()"><button type="button" class="cancelbtn"> Cancel</button></a>
-    <span class="psw">New here? <a href="SignUp.html">Create account</a></span>
-  </div>
 </form>
-</div>
+
 
 </body>
 </html>
