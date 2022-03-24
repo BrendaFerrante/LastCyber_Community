@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
+import java.util.Date;
 
 @RequestMapping("/club")
 @Controller
@@ -19,8 +20,8 @@ public class ClubController {
     ClubHolder clubHolder;
 
 
-    private Long idC;
-    private Long idB;
+    private Long idC=(long)1;
+    private int idB;
 
     @GetMapping("") //View all clubs
     public String club(Model model) {
@@ -86,8 +87,9 @@ public class ClubController {
     public String EdiClub(Model model, Club club) {
         clubHolder.getClub(this.idC).setName(club.getName());
 
-        //clubHolder.getClub(this.idC).setDescription(club.getDescription());
+        clubHolder.getClub(this.idC).setDescription(club.getDescription());
         //clubHolder.changeClub(this.idC,club);
+        model.addAttribute("logged",true);
         model.addAttribute("message", "This club has been edited");
         return "message";
     }
@@ -134,16 +136,20 @@ public class ClubController {
     }
 
     @GetMapping("/{idC}/blog/{idB}/edit") //Edit one blog - get Ids
-    public String EditBlog(Model model, @PathVariable long idC, @PathVariable long idB){
+    public String EditBlog(Model model, @PathVariable long idC, @PathVariable int idB){
         this.idC=idC;
         this.idB=idB;
         return "/editBlog";
     }
 
     @PostMapping("/blog/edit") //Update one blog
-    public String UpdateBlog(Model model, Blog upBlog){
+    public String UpdateBlog(Model model,Blog upBlog){
         Club club=clubHolder.getClub(this.idC);
-        clubHolder.getClub(this.idC).changeBlog(this.idB,upBlog);
+        club.getBlog(this.idB).setTitle(upBlog.getTitle());
+        club.getBlog(this.idB).setContent(upBlog.getContent());
+        club.getBlog(this.idB).setResume(upBlog.getResume());
+        club.getBlog(this.idB).setDate(new Date());
+        //clubHolder.getClub(this.idC).changeBlog(this.idB,upBlog);
         model.addAttribute("message","This blog has been edited");
         return "message";
     }
