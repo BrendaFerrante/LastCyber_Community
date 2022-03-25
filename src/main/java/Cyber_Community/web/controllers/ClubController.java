@@ -122,6 +122,7 @@ public class ClubController {
     @PostMapping( "/blog/new") //Add a new blog to the club
     @ResponseStatus(HttpStatus.CREATED)
     public String AddBlog(Model model, Blog blog) {
+        blog.setDate(new Date());
         clubHolder.getClub(this.idC).addBlog(blog);
         model.addAttribute("message","This blog has been created");
         model.addAttribute("idC", this.idC);
